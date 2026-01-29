@@ -1,0 +1,87 @@
+# Заставляем Git не менять line ending без явного на то указания.
+*			-text
+
+# General
+.gitattributes		text eol=native
+.gitignore			text eol=native
+.tgitconfig			text eol=native
+
+# Text
+*.md                text eol=native
+*.gradle            text eol=native
+*.java              text eol=native
+*.properties        text eol=native
+*.xml               text eol=native
+*.yml               text eol=native
+*.bat               text eol=native
+*.sh                text eol=lf
+*.sql               text eol=lf
+*.cpp               text eol=native
+*.h                 text eol=native
+*.cs                text eol=native
+*.ini               text eol=native
+*.json              text eol=native
+*.py                text eol=native
+*.txt               text eol=native
+*.wfpproj           text eol=native
+*.wwu               text eol=native
+*.uplugin           text eol=native
+*.uproject          text eol=native
+*.precompiled       text eol=native
+*.modules           text eol=native
+Timestamp           text eol=native
+_empty              text eol=native
+
+# LFS
+#   Unreal
+*.uasset    filter=lfs diff=lfs merge=binary -text
+*.umap      filter=lfs diff=lfs merge=binary -text
+#   General
+*.zip       filter=lfs diff=lfs merge=lfs -text
+*.pdf       filter=lfs diff=lfs merge=lfs -text
+#   Images
+*.bmp       filter=lfs diff=lfs merge=lfs -text
+*.gif	    filter=lfs diff=lfs merge=lfs -text
+*.tga	    filter=lfs diff=lfs merge=lfs -text
+*.spp       filter=lfs diff=lfs merge=lfs -text
+*.psd       filter=lfs diff=lfs merge=lfs -text
+*.jpg	    filter=lfs diff=lfs merge=lfs -text
+*.jpeg      filter=lfs diff=lfs merge=lfs -text
+*.png       filter=lfs diff=lfs merge=lfs -text
+*.webp      filter=lfs diff=lfs merge=lfs -text
+*.ico       filter=lfs diff=lfs merge=lfs -text
+*.tiff      filter=lfs diff=lfs merge=lfs -text
+*.so        filter=lfs diff=lfs merge=lfs -text
+*.dll       filter=lfs diff=lfs merge=lfs -text
+#   Tech
+*.exe       filter=lfs diff=lfs merge=lfs -text
+*.mll       filter=lfs diff=lfs merge=lfs -text
+*.pyd       filter=lfs diff=lfs merge=lfs -text
+*.lib       filter=lfs diff=lfs merge=lfs -text
+*.locres    filter=lfs diff=lfs merge=lfs -text
+*.pdb       filter=lfs diff=lfs merge=lfs -text
+*.elf       filter=lfs diff=lfs merge=lfs -text
+*.prx       filter=lfs diff=lfs merge=lfs -text
+#   Audio
+*.wav       filter=lfs diff=lfs merge=lfs -text
+*.mp3       filter=lfs diff=lfs merge=lfs -text
+*.flac      filter=lfs diff=lfs merge=lfs -text
+*.ogg       filter=lfs diff=lfs merge=lfs -text
+#   Video
+*.avi       filter=lfs diff=lfs merge=lfs -text
+*.mkv       filter=lfs diff=lfs merge=lfs -text
+*.mp4       filter=lfs diff=lfs merge=lfs -text
+#   3d
+*.3ds       filter=lfs diff=lfs merge=lfs -text
+*.fbx       filter=lfs diff=lfs merge=lfs -text
+*.obj       filter=lfs diff=lfs merge=lfs -text
+*.stl       filter=lfs diff=lfs merge=lfs -text
+*.blend     filter=lfs diff=lfs merge=lfs -text
+*.dae       filter=lfs diff=lfs merge=lfs -text
+*.gltf      filter=lfs diff=lfs merge=lfs -text
+*.glb       filter=lfs diff=lfs merge=lfs -text
+*.fbx       filter=lfs diff=lfs merge=lfs -text
+*.max       filter=lfs diff=lfs merge=lfs -text
+
+#*.manifest filter=lfs diff=lfs merge=lfs -text
+#*.archive filter=lfs diff=lfs merge=lfs -text
