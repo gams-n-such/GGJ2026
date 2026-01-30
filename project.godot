@@ -15,6 +15,10 @@ config/tags=PackedStringArray("jams")
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Game="*uid://cs34d64dgwg7p"
+
 [input]
 
 ui_left={
