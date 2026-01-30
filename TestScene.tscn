@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dweh6bwy8lxy4"]
+
+[ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://player/player.tscn" id="1_mncer"]
+[ext_resource type="PackedScene" uid="uid://gcaaanlvm7ue" path="res://Enemy/ennemy.tscn" id="2_cguwc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mncer"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+energy_multiplier = 1.25
+
+[sub_resource type="Sky" id="Sky_cguwc"]
+sky_material = SubResource("ProceduralSkyMaterial_mncer")
+
+[sub_resource type="Environment" id="Environment_wicfy"]
+background_mode = 2
+sky = SubResource("Sky_cguwc")
+tonemap_mode = 2
+ssr_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_mncer"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_mncer"]
+data = PackedVector3Array(-0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5)
+
+[node name="Node3D" type="Node3D" unique_id=171005946]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=185737757]
+environment = SubResource("Environment_wicfy")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1389899162]
+transform = Transform3D(4.17547, 0, 0, 0, 1, 0, 0, 0, 3.8350658, 0, 0, 0)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="StaticBody3D" unique_id=309847429]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, -0.49269104, 0)
+mesh = SubResource("BoxMesh_mncer")
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1459925392]
+transform = Transform3D(49.999996, 0, 0, 0, 1, 0, 0, 0, 49.999996, 0, -0.49269104, 0)
+shape = SubResource("ConcavePolygonShape3D_mncer")
+
+[node name="Player" parent="." unique_id=1206673027 instance=ExtResource("1_mncer")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27139473, 0, 0.107617736)
+
+[node name="Ennemy" parent="." unique_id=609859506 instance=ExtResource("2_cguwc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, 10)
