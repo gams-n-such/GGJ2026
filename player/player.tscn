@@ -20,7 +20,7 @@ height = 1.85
 radius = 0.4
 height = 1.85
 
-[node name="Player" type="CharacterBody3D" unique_id=1158226171]
+[node name="Player" type="CharacterBody3D" unique_id=1158226171 groups=["Player"]]
 script = ExtResource("1_oul6g")
 footstep_sound = Array[AudioStream]([ExtResource("2_2ieo8"), ExtResource("3_ebec5"), ExtResource("4_yllr7"), ExtResource("5_kb6p2"), ExtResource("6_wodsf"), ExtResource("7_32hag"), ExtResource("8_tqiix"), ExtResource("9_e7oew"), ExtResource("10_c35mf"), ExtResource("11_65viv")])
 
