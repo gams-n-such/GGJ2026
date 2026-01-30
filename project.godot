@@ -8,6 +8,11 @@
 
 config_version=5
 
+[addons]
+
+instance_dock/scene_data_file="res://InstanceDockSceneData.txt"
+instance_dock/preview_resolution=Vector2i(64, 64)
+
 [application]
 
 config/name="GGJ2026"
@@ -18,6 +23,10 @@ config/icon="res://icon.svg"
 [autoload]
 
 Game="*uid://cs34d64dgwg7p"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/InstanceDock/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg", "res://addons/time-tracker/plugin.cfg")
 
 [global_group]
 
