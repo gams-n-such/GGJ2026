@@ -5,6 +5,7 @@ extends RayCast3D
 
 signal potential_target_found(target : Node)
 signal potential_target_lost()
+signal interaction_started(target : Node, time_left : float)
 signal interaction_ended(target : Node, success : bool)
 
 var potential_target : Node
@@ -48,6 +49,7 @@ func begin_interaction() -> void:
 	active_target = potential_target
 	on_interaction_started()
 	var time_to_interact := get_time_to_interact(active_target)
+	interaction_started.emit(active_target, time_to_interact)
 	if time_to_interact > 0:
 		interaction_timer.start(time_to_interact)
 	else:
