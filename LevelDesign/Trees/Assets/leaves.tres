@@ -1,0 +1,14 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://22byyoq20q1b"]
+
+[ext_resource type="Texture2D" uid="uid://mhaut2f3foyg" path="res://LevelDesign/Trees/Assets/three_1.png" id="1_4bcuy"]
+
+[resource]
+resource_name = "leaves"
+transparency = 4
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_4bcuy")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
+texture_repeat = false
