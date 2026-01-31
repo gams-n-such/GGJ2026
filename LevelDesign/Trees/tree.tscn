@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ceda5a0cgwbyi"]
+
+[ext_resource type="PackedScene" uid="uid://b8tyyinuho5bm" path="res://LevelDesign/Trees/Assets/three.fbx" id="1_4g3rk"]
+
+[node name="Tree" type="Node3D" unique_id=171125264]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=647517448]
+
+[node name="three" parent="Node3D" unique_id=1392888402 instance=ExtResource("1_4g3rk")]

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cnhfyrc3aymu5"]
+
+[ext_resource type="PackedScene" uid="uid://ck1bawi6u3kp1" path="res://LevelDesign/Ship/Assets/Spaceship_FernandoTheFlamingo.fbx" id="1_u5vhr"]
+
+[node name="SpaceShip" type="Node3D" unique_id=1147634907]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=653560935]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="Spaceship_FernandoTheFlamingo" parent="Node3D" unique_id=1439709567 instance=ExtResource("1_u5vhr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8615651, 0)

@@ -27,7 +27,7 @@ Game="*uid://cs34d64dgwg7p"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/InstanceDock/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg", "res://addons/time-tracker/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg")
 
 [file_customization]
 
@@ -35,6 +35,7 @@ folder_colors={
 "res://Assets/": "green",
 "res://Common/": "teal",
 "res://Core/": "orange",
+"res://LevelDesign/": "yellow",
 "res://Misc/": "purple",
 "res://Shaders/": "pink",
 "res://addons/": "gray"
