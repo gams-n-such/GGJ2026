@@ -3,11 +3,12 @@
 [ext_resource type="Script" uid="uid://dc7q2iu6c07r6" path="res://Enemy/enemy.gd" id="1_px1sc"]
 [ext_resource type="Texture2D" uid="uid://dlphs4uwg1ed8" path="res://Enemy/ttt.png" id="2_am0pq"]
 [ext_resource type="PackedScene" uid="uid://6y57hvifonvu" path="res://Core/rotate_to_camera.tscn" id="2_eqilm"]
+[ext_resource type="Script" uid="uid://cmpefrfbpmpfh" path="res://Atributes/attribute.gd" id="4_eqilm"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jqrbl"]
 height = 1.8085938
 
-[node name="Ennemy" type="CharacterBody3D" unique_id=609859506]
+[node name="Ennemy" type="CharacterBody3D" unique_id=609859506 groups=["Damageable"]]
 script = ExtResource("1_px1sc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=947247283]
@@ -19,3 +20,11 @@ shape = SubResource("CapsuleShape3D_jqrbl")
 [node name="Sprite3D" type="Sprite3D" parent="RotateToCamera" unique_id=294487703]
 transform = Transform3D(0.5169566, 0, 0, 0, 0.75916636, 0, 0, 0, 1, 0, 1.0396684, 0)
 texture = ExtResource("2_am0pq")
+
+[node name="Health" type="Node" parent="." unique_id=121723286]
+unique_name_in_owner = true
+script = ExtResource("4_eqilm")
+_starting_value = 100.0
+has_max_value = true
+max_value = 100.0
+metadata/_custom_type_script = "uid://cmpefrfbpmpfh"

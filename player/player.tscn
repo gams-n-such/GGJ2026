@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://b8j5dvefv2fmt" path="res://player/sounds/footsteps/footstep_8.wav" id="9_e7oew"]
 [ext_resource type="AudioStream" uid="uid://48xt4llun7t8" path="res://player/sounds/footsteps/footstep_9.wav" id="10_c35mf"]
 [ext_resource type="AudioStream" uid="uid://dly32slohyd7p" path="res://player/sounds/footsteps/footstep_10.wav" id="11_65viv"]
+[ext_resource type="Script" uid="uid://cmpefrfbpmpfh" path="res://Atributes/attribute.gd" id="12_ebec5"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oul6g"]
 radius = 0.4
@@ -20,7 +21,7 @@ height = 1.85
 radius = 0.4
 height = 1.85
 
-[node name="Player" type="CharacterBody3D" unique_id=1158226171 groups=["Player"]]
+[node name="Player" type="CharacterBody3D" unique_id=1158226171 groups=["Damageable", "Player"]]
 script = ExtResource("1_oul6g")
 footstep_sound = Array[AudioStream]([ExtResource("2_2ieo8"), ExtResource("3_ebec5"), ExtResource("4_yllr7"), ExtResource("5_kb6p2"), ExtResource("6_wodsf"), ExtResource("7_32hag"), ExtResource("8_tqiix"), ExtResource("9_e7oew"), ExtResource("10_c35mf"), ExtResource("11_65viv")])
 
@@ -85,3 +86,11 @@ grow_vertical = 2
 [node name="FootstepSound" type="AudioStreamPlayer" parent="." unique_id=683822276]
 volume_db = -20.0
 max_polyphony = 10
+
+[node name="Health" type="Node" parent="." unique_id=2109046521]
+unique_name_in_owner = true
+script = ExtResource("12_ebec5")
+_starting_value = 100.0
+has_max_value = true
+max_value = 100.0
+metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
