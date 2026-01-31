@@ -33,6 +33,7 @@ enabled=PackedStringArray("res://addons/InstanceDock/plugin.cfg", "res://addons/
 
 folder_colors={
 "res://Assets/": "green",
+"res://Common/": "teal",
 "res://Core/": "orange",
 "res://Misc/": "purple",
 "res://Shaders/": "pink",
@@ -46,6 +47,11 @@ Plants=""
 Damageable="You can expect these nodes to have \"Health\" Attribute node attached directly to them"
 Collectible=""
 Infectable="Enemies and plants thet can be infected or healed"
+
+[gui]
+
+theme/custom="uid://d0s4hxg7slfba"
+theme/custom_font="uid://d0gb1qky2lio2"
 
 [input]
 
