@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://6y57hvifonvu"]
+
+[ext_resource type="Script" uid="uid://dlma1q8a0v1kh" path="res://Core/rotate_to_camera.gd" id="1_lc4dn"]
+
+[node name="RotateToCamera" type="Node3D" unique_id=1718437271]
+script = ExtResource("1_lc4dn")
