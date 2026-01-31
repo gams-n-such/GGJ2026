@@ -63,8 +63,8 @@ func _physics_process(delta: float) -> void:
 	
 	# Проверяем атаку
 	if raycast.is_colliding() and current_state == "chase":
-		print("enemy attacking")
 		# Здесь можно добавить логику атаки
+		pass
 	
 	# Анимации
 	if velocity.length() > 0.1:
