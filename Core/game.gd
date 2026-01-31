@@ -2,6 +2,8 @@ extends Node
 
 var player : Player
 
+func _ready() -> void:
+	reset_collectibles()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("DebugQuit"):
