@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://lv1ln4u3fxhs"]
+
+[ext_resource type="Script" uid="uid://8iq1i41swaai" path="res://Core/Equipment/equipment_manager.gd" id="1_rskov"]
+
+[node name="EquipmentManager" type="Node" unique_id=999533775]
+script = ExtResource("1_rskov")
