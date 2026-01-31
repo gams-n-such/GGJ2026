@@ -7,10 +7,12 @@ signal potential_target_found(target : Node)
 signal potential_target_lost()
 signal interaction_ended(target : Node, success : bool)
 
-var potential_target : InteractionTrigger
-var active_target : InteractionTrigger
+var potential_target : Node
+var active_target : Node
 
-func detect_target() -> InteractionTrigger:
+@export var target_group := Utils.group_interactable
+
+func detect_target() -> Node:
 	var target = get_collider()
 	if not target:
 		return null
@@ -19,12 +21,14 @@ func detect_target() -> InteractionTrigger:
 	var shape = target.shape_owner_get_owner(owner_id)
 	if not shape:
 		push_error("Interactor failed to detect target")
-	return Utils.get_interactable_from(shape)
+	if target_group.is_empty():
+		return shape as Node
+	else:
+		return Utils.find_parent_in_group(shape, target_group)
 
 func _process(delta: float) -> void:
 	if potential_target != detect_target():
 		potential_target = detect_target()
-		print(potential_target)
 		if active_target and active_target != potential_target:
 			interrupt_interaction()
 		if not potential_target:
@@ -33,17 +37,26 @@ func _process(delta: float) -> void:
 			potential_target_found.emit(potential_target)
 
 func get_time_to_interact(with : Node) -> float:
-	return 1.0
+	var interactable := with as InteractionTrigger
+	if interactable:
+		return interactable.interaction_time
+	return -1.0
 
 func begin_interaction() -> void:
 	if not potential_target:
 		return
 	active_target = potential_target
+	on_interaction_started()
 	var time_to_interact := get_time_to_interact(active_target)
 	if time_to_interact > 0:
 		interaction_timer.start(time_to_interact)
 	else:
 		_end_interaction(true)
+
+func on_interaction_started() -> void:
+	var interactable := active_target as InteractionTrigger
+	if interactable:
+		interactable.interaction_started.emit()
 
 func is_interacting() -> bool:
 	return active_target != null
@@ -63,7 +76,12 @@ func _end_interaction(completed : bool) -> void:
 	_cleanup_interaction()
 
 func on_interaction_ended(completed : bool) -> void:
-	return
+	var interactable := active_target as InteractionTrigger
+	if interactable:
+		if completed:
+			interactable.interaction_completed.emit()
+		else:
+			interactable.interaction_aborted.emit()
 
 func _cleanup_interaction() -> void:
 	active_target = null

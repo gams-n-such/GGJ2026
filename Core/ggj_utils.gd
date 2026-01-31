@@ -5,9 +5,12 @@ extends Node
 
 const group_player := &"Player"
 const group_damageable := &"Damageable"
-const group_collectible := &"Collectible"
 const group_infectable := &"Infectable"
 const group_interactable := &"Interactable"
+
+const group_collectible := &"Collectible"
+const group_parts := &"ShipParts"
+const group_vials := &"Vials"
 
 const nodepath_health := "Health"
 const nodepath_infection := "Infection"

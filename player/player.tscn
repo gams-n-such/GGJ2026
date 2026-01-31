@@ -58,7 +58,7 @@ unique_name_in_owner = true
 [node name="Camera3D" type="Camera3D" parent="HeadPosition/LandingAnimation" unique_id=1738730421]
 unique_name_in_owner = true
 
-[node name="InteractionDetect" parent="HeadPosition/LandingAnimation/Camera3D" unique_id=553457367 instance=ExtResource("12_32hag")]
+[node name="Interactor" parent="HeadPosition/LandingAnimation/Camera3D" unique_id=553457367 instance=ExtResource("12_32hag")]
 unique_name_in_owner = true
 target_position = Vector3(0, 0, -3)
 

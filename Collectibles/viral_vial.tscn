@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://cbkq3k7xyyaja"]
 
+[ext_resource type="Script" uid="uid://ck1x3dk8dc8hn" path="res://Collectibles/viral_vial.gd" id="1_4s0i7"]
+[ext_resource type="PackedScene" uid="uid://bcgvlf3aafxqf" path="res://Interaction/interaction_trigger.tscn" id="1_6h4e8"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vh0jp"]
 albedo_color = Color(0.22689691, 0.00025203667, 0.31438974, 1)
 
@@ -8,8 +11,15 @@ material = SubResource("StandardMaterial3D_vh0jp")
 radius = 0.3
 height = 1.2
 
-[node name="ViralVial" type="Node3D" unique_id=1087167254]
+[node name="ViralVial" type="Node3D" unique_id=1087167254 groups=["Collectible", "Vials"]]
+script = ExtResource("1_4s0i7")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1974137948]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.4, 0)
 mesh = SubResource("CapsuleMesh_6h4e8")
+
+[node name="InteractionTrigger" parent="." unique_id=1303982047 instance=ExtResource("1_6h4e8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75764596, 0)
+monitoring = true
+
+[connection signal="interaction_completed" from="InteractionTrigger" to="." method="_on_interaction_trigger_interaction_completed"]
