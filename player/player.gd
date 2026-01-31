@@ -28,12 +28,6 @@ func _input(event: InputEvent) -> void:
 		%Camera3D.rotation_degrees.x -= event.relative.y / 10
 		%Camera3D.rotation_degrees.x = clamp( %Camera3D.rotation_degrees.x, -90, 90 )
 	
-	if Input.is_key_pressed(KEY_ESCAPE):
-		is_mouse_visible = !is_mouse_visible
-		
-		if visible: Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
-		else: Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * 2 * delta
@@ -102,3 +96,8 @@ func play_random_footstep_sound() -> void:
 	if footstep_sound.size() > 0:
 		$FootstepSound.stream = footstep_sound.pick_random()
 		$FootstepSound.play()
+
+func _on_health_value_changed(attribute: Attribute, new_value: float) -> void:
+	if new_value <= 0:
+		$GUI/HUD.visible = false
+		$GUI/DeathUI.visible = true

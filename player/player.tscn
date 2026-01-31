@@ -11,6 +11,10 @@
 [ext_resource type="AudioStream" uid="uid://b8j5dvefv2fmt" path="res://player/sounds/footsteps/footstep_8.wav" id="9_e7oew"]
 [ext_resource type="AudioStream" uid="uid://48xt4llun7t8" path="res://player/sounds/footsteps/footstep_9.wav" id="10_c35mf"]
 [ext_resource type="AudioStream" uid="uid://dly32slohyd7p" path="res://player/sounds/footsteps/footstep_10.wav" id="11_65viv"]
+[ext_resource type="Script" uid="uid://cmpefrfbpmpfh" path="res://Core/Atributes/attribute.gd" id="12_kb6p2"]
+[ext_resource type="Shader" uid="uid://w77bset6y6lr" path="res://Shaders/Blur.gdshader" id="13_wodsf"]
+[ext_resource type="PackedScene" uid="uid://bipkxexwec852" path="res://Misc/Button/button.tscn" id="14_32hag"]
+[ext_resource type="PackedScene" uid="uid://b0mf3l56dvooj" path="res://Misc/Pause/pause_menu.tscn" id="15_wodsf"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oul6g"]
 radius = 0.4
@@ -19,6 +23,15 @@ height = 1.85
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oul6g"]
 radius = 0.4
 height = 1.85
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tqiix"]
+shader = ExtResource("13_wodsf")
+shader_parameter/blur_amount = 1.5690001695275
+shader_parameter/mix_amount = 0.0850000040375
+shader_parameter/color_over = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_e7oew"]
+font_size = 67
 
 [node name="Player" type="CharacterBody3D" unique_id=1158226171 groups=["Damageable", "Player"]]
 collision_layer = 16
@@ -47,7 +60,20 @@ unique_name_in_owner = true
 [node name="CeilingDetector" type="RayCast3D" parent="." unique_id=1255637517]
 target_position = Vector3(0, 2.1, 0)
 
-[node name="Crosshair" type="Control" parent="." unique_id=442683083]
+[node name="FootstepSound" type="AudioStreamPlayer" parent="." unique_id=683822276]
+volume_db = -20.0
+max_polyphony = 10
+
+[node name="Health" type="Node" parent="." unique_id=607692312]
+script = ExtResource("12_kb6p2")
+_starting_value = 100.0
+has_max_value = true
+max_value = 100.0
+metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
+
+[node name="GUI" type="CanvasLayer" parent="." unique_id=2118645892]
+
+[node name="HUD" type="Control" parent="GUI" unique_id=1836050831]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -55,7 +81,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="Crosshair" unique_id=1996728416]
+[node name="Crosshair" type="Control" parent="GUI/HUD" unique_id=442683083]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="GUI/HUD/Crosshair" unique_id=1996728416]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -70,7 +104,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="Crosshair" unique_id=1853978242]
+[node name="ColorRect2" type="ColorRect" parent="GUI/HUD/Crosshair" unique_id=1853978242]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -84,6 +118,48 @@ offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="FootstepSound" type="AudioStreamPlayer" parent="." unique_id=683822276]
-volume_db = -20.0
-max_polyphony = 10
+[node name="DeathUI" type="Control" parent="GUI" unique_id=1402694153]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="GUI/DeathUI" unique_id=1935610368]
+material = SubResource("ShaderMaterial_tqiix")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="GUI/DeathUI" unique_id=840732027]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 273.0
+offset_top = 115.0
+offset_right = -273.0
+offset_bottom = -154.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 94
+
+[node name="Label" type="Label" parent="GUI/DeathUI/VBoxContainer" unique_id=1899422359]
+layout_mode = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_e7oew")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" parent="GUI/DeathUI/VBoxContainer" unique_id=369440333 instance=ExtResource("14_32hag")]
+layout_mode = 2
+theme_override_font_sizes/font_size = 58
+
+[node name="PauseMenu" parent="GUI" unique_id=1869559949 instance=ExtResource("15_wodsf")]
+
+[connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]

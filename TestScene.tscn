@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://player/player.tscn" id="1_mncer"]
 [ext_resource type="PackedScene" uid="uid://gcaaanlvm7ue" path="res://MyEnemyV1/Enemy/ennemy.tscn" id="2_cguwc"]
+[ext_resource type="PackedScene" uid="uid://bh0l7ugxwk4ho" path="res://Assets/Plants/plant.tscn" id="3_wicfy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mncer"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -59,12 +60,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.31194, 1.2310052, 21.02657
 
 [node name="Ennemy5" parent="." unique_id=300407392 instance=ExtResource("2_cguwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.30167, 1.2310052, -28.268148)
-can_flee = true
-can_wander = false
 
 [node name="Ennemy6" parent="." unique_id=813610123 instance=ExtResource("2_cguwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.228773, 1.2310052, -23.383656)
-can_flee = true
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=188219772]
 navigation_mesh = SubResource("NavigationMesh_cguwc")
@@ -98,3 +96,33 @@ size = Vector3(31.17273, 3.4296265, 9.704376)
 transform = Transform3D(0.0043533775, 0, 0.012610574, 0, 0.9999885, 0, -0.0127930865, 0, 0.00429127, -0.15812226, 0.14783256, -0.36387685)
 operation = 2
 size = Vector3(31.17273, 3.4296265, 9.704376)
+
+[node name="Plant" parent="." unique_id=1570575129 instance=ExtResource("3_wicfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.3139124, 1.1662204, -15.090748)
+
+[node name="Plant2" parent="." unique_id=1718437271 instance=ExtResource("3_wicfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2888885, 1.1662204, -14.461916)
+
+[node name="Plant3" parent="." unique_id=625555545 instance=ExtResource("3_wicfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.052719, 1.1662204, -15.482284)
+
+[node name="Plant4" parent="." unique_id=571454297 instance=ExtResource("3_wicfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.052719, 1.1662204, -11.482284)
+
+[node name="Plant5" parent="." unique_id=1415588770 instance=ExtResource("3_wicfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.410098, 1.1662204, -12.098528)
+
+[node name="Plant6" parent="." unique_id=1093268072 instance=ExtResource("3_wicfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04253578, 1.1662204, -19.622013)
+
+[node name="Plant7" parent="." unique_id=797503119 instance=ExtResource("3_wicfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.042536, 1.1662204, -21.622013)
+
+[node name="Plant8" parent="." unique_id=1297948736 instance=ExtResource("3_wicfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.2245016, 1.1662204, -27.157064)
+
+[node name="Plant9" parent="." unique_id=1224336293 instance=ExtResource("3_wicfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.174916, 1.1662204, -23.156544)
+
+[node name="Plant10" parent="." unique_id=1196065433 instance=ExtResource("3_wicfy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.7924, 1.1662204, -17.552324)

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bipkxexwec852"]
+
+[ext_resource type="Script" uid="uid://ct881kmkphoy3" path="res://Misc/Button/AdvanceButton.gd" id="1_xtr23"]
+
+[node name="Button" type="Button" unique_id=369440333]
+offset_right = 27.0
+offset_bottom = 8.0
+text = "Button"
+script = ExtResource("1_xtr23")
+
+[node name="Accept" type="AudioStreamPlayer" parent="." unique_id=833294710]
+
+[node name="Decline" type="AudioStreamPlayer" parent="." unique_id=720533614]
+
+[node name="Hover" type="AudioStreamPlayer" parent="." unique_id=1593114172]

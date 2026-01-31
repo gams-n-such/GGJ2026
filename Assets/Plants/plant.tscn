@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://bh0l7ugxwk4ho"]
+
+[ext_resource type="Script" uid="uid://ckdu845qisc82" path="res://Assets/Plants/Plant.gd" id="1_bcplt"]
+[ext_resource type="PackedScene" uid="uid://6y57hvifonvu" path="res://Core/rotate_to_camera.tscn" id="1_uamvw"]
+[ext_resource type="Texture2D" uid="uid://yfogx8kralfq" path="res://Assets/Plants/Plants.png" id="2_uamvw"]
+[ext_resource type="PackedScene" uid="uid://bdvvcs0gpvtmr" path="res://Infection/infection.tscn" id="4_dcim6"]
+[ext_resource type="Shader" uid="uid://d2gfk2lbwwgms" path="res://Assets/Plants/WindSway.gdshader" id="4_uamvw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idfef"]
+atlas = ExtResource("2_uamvw")
+region = Rect2(243, 1824, 1004, 549)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5jkp"]
+atlas = ExtResource("2_uamvw")
+region = Rect2(243, 1016, 1004, 547)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgikq"]
+atlas = ExtResource("2_uamvw")
+region = Rect2(243, 131, 969, 597)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vg6mw"]
+render_priority = 0
+shader = ExtResource("4_uamvw")
+shader_parameter/albedo_texture = ExtResource("2_uamvw")
+shader_parameter/scale = Vector3(0.5, 0.5, 0.3)
+shader_parameter/wind_strength = 0.63999998942031
+shader_parameter/wind_speed = 0.90000000596048
+
+[sub_resource type="Animation" id="Animation_vg6mw"]
+resource_name = "Plant"
+length = 2.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6666667, 1.5333333, 2.4666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 0, -0.054576445), Vector3(0, 0, 0.11747811), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_dcim6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -0.054576445)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_idfef"]
+_data = {
+&"Plant": SubResource("Animation_vg6mw"),
+&"RESET": SubResource("Animation_dcim6")
+}
+
+[node name="RotateToCamera" unique_id=1718437271 instance=ExtResource("1_uamvw")]
+
+[node name="Plant" type="Node3D" parent="." index="0" unique_id=1570575129 groups=["Infectable"]]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+script = ExtResource("1_bcplt")
+none_infection = SubResource("AtlasTexture_idfef")
+half_infection = SubResource("AtlasTexture_l5jkp")
+full_infection = SubResource("AtlasTexture_lgikq")
+
+[node name="Sprite3D" type="Sprite3D" parent="Plant" index="0" unique_id=818365290]
+transform = Transform3D(0.9985111, 0.054549355, 0, -0.054549355, 0.9985111, 0, 0, 0, 1, 0, 2.6543531, 2.719645)
+material_override = SubResource("ShaderMaterial_vg6mw")
+texture = ExtResource("2_uamvw")
+hframes = 3
+vframes = 3
+frame = 6
+
+[node name="Infection" parent="Plant" index="1" unique_id=479001063 instance=ExtResource("4_dcim6")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Plant" index="2" unique_id=1439622947]
+libraries/ = SubResource("AnimationLibrary_idfef")
+autoplay = &"Plant"
+
+[connection signal="infection_state_changed" from="Plant/Infection" to="Plant" method="_on_infection_infection_state_changed"]

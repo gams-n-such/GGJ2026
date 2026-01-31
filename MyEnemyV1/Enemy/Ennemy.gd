@@ -64,6 +64,7 @@ func _physics_process(delta: float) -> void:
 	# Проверяем атаку
 	if raycast.is_colliding() and current_state == "chase":
 		print("enemy attacking")
+		Utils.deal_damage(player,1)
 		# Здесь можно добавить логику атаки
 	
 	# Анимации
