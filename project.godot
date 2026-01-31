@@ -128,13 +128,6 @@ DebugCursor={
 [layer_names]
 
 3d_physics/layer_1="World"
-3d_physics/layer_2="Player"
-3d_physics/layer_3="Enemy"
-3d_physics/layer_4="Trigger"
-
-[layer_names]
-
-3d_physics/layer_1="World"
 3d_physics/layer_2="Environment"
 3d_physics/layer_3="Entities"
 3d_physics/layer_4="Enemy"
