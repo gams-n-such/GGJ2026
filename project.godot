@@ -29,10 +29,6 @@ buses/default_bus_layout="uid://dbqdepthedi1i"
 
 Game="*uid://cs34d64dgwg7p"
 
-[display]
-
-window/size/mode=3
-
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg")
@@ -59,6 +55,7 @@ Infectable="Enemies and plants thet can be infected or healed"
 Interactable="Interaction triggers"
 ShipParts="One of the goals. Must also be Collectible"
 Vials="One of the goals. Must also be Collectible"
+Enemies=""
 
 [gui]
 
