@@ -64,6 +64,9 @@ _data = {
 &"RESET": SubResource("Animation_dcim6")
 }
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_uamvw"]
+size = Vector3(17.798706, 15.266724, 19.176392)
+
 [node name="RotateToCamera" unique_id=1718437271 instance=ExtResource("1_uamvw")]
 
 [node name="Plant" type="Node3D" parent="." index="0" unique_id=1570575129 groups=["Infectable"]]
@@ -87,4 +90,13 @@ frame = 6
 libraries/ = SubResource("AnimationLibrary_idfef")
 autoplay = &"Plant"
 
+[node name="Area3D" type="Area3D" parent="Plant" index="3" unique_id=812520807]
+collision_layer = 2
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Plant/Area3D" index="0" unique_id=1759163138]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1397094, 7.133362, -0.5265501)
+shape = SubResource("BoxShape3D_uamvw")
+
 [connection signal="infection_state_changed" from="Plant/Infection" to="Plant" method="_on_infection_infection_state_changed"]
+[connection signal="body_entered" from="Plant/Area3D" to="Plant" method="_on_area_3d_body_entered"]

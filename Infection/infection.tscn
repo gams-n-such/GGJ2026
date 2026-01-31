@@ -7,6 +7,7 @@ script = ExtResource("1_e0k3c")
 
 [node name="IncubationTimer" type="Timer" parent="." unique_id=252688265]
 unique_name_in_owner = true
+autostart = true
 
 [node name="ImmunityTimer" type="Timer" parent="." unique_id=41387302]
 unique_name_in_owner = true
