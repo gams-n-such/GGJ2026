@@ -4,6 +4,7 @@ extends Node
 #region Names
 
 const group_damageable := &"Damageable"
+const group_collectible := &"Collectible"
 
 const node_health := &"Health"
 const nodepath_health := "$Health"
