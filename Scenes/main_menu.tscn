@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cx8nkv1sc72a5"]
 
 [ext_resource type="Texture2D" uid="uid://d1d0vs5ved7p7" path="res://Assets/Textures/image.png" id="1_1ehe0"]
+[ext_resource type="Script" uid="uid://c8amgnhd0v8g" path="res://Scenes/main_menu.gd" id="1_4nkqq"]
 [ext_resource type="Texture2D" uid="uid://bdva8wax20umq" path="res://Assets/Textures/Main menu/1.png" id="2_8dnnj"]
 [ext_resource type="Texture2D" uid="uid://dlnm6ol4kroap" path="res://Assets/FX/particle.png" id="2_ce3w2"]
 [ext_resource type="Texture2D" uid="uid://cpqfgmve5j6bf" path="res://Assets/Textures/Main menu/2.png" id="3_m3bi6"]
@@ -18,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://74xevmvxsihw" path="res://Assets/Textures/Main menu/13.png" id="11_jr6u5"]
 [ext_resource type="Texture2D" uid="uid://q5vrlgghktqj" path="res://Assets/Textures/Main menu/3.png" id="12_6m47u"]
 [ext_resource type="Texture2D" uid="uid://cb3s47ayummlo" path="res://Assets/Textures/Main menu/11.png" id="12_ehtkc"]
-[ext_resource type="Shader" uid="uid://dtaq11b7mqwos" path="res://Shaders/GodRays.gdshader" id="12_m3bi6"]
+[ext_resource type="Shader" path="res://Shaders/GodRays.gdshader" id="12_m3bi6"]
 
 [sub_resource type="Curve" id="Curve_8dnnj"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.47577095, 1), 0.038068075, 0.038068075, 0, 0, Vector2(0.6828194, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -1025,7 +1026,7 @@ shader = ExtResource("12_m3bi6")
 shader_parameter/ray_angle = -0.3
 shader_parameter/ray_position = -0.54
 shader_parameter/spread = 0.400000019
-shader_parameter/cutoff = -0.030999953972499994
+shader_parameter/cutoff = -0.03099995397249999
 shader_parameter/falloff = 0.8310000394725
 shader_parameter/edge_fade = 0.1190000056525
 shader_parameter/speed = 1.0
@@ -1043,6 +1044,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_4nkqq")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=2099321377]
 layout_mode = 0
@@ -1165,7 +1167,7 @@ layout_mode = 2
 layout_mode = 2
 alignment = 1
 
-[node name="Button" parent="VBoxContainer/HBoxContainer" unique_id=369440333 instance=ExtResource("4_cp0ys")]
+[node name="PlayButton" parent="VBoxContainer/HBoxContainer" unique_id=369440333 instance=ExtResource("4_cp0ys")]
 custom_minimum_size = Vector2(350, 35)
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
@@ -1174,7 +1176,7 @@ text = "START"
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer" unique_id=771142261]
 layout_mode = 2
 
-[node name="Button2" parent="VBoxContainer/HBoxContainer" unique_id=1921112206 instance=ExtResource("4_cp0ys")]
+[node name="CreditsButton" parent="VBoxContainer/HBoxContainer" unique_id=1921112206 instance=ExtResource("4_cp0ys")]
 custom_minimum_size = Vector2(350, 35)
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
@@ -1183,7 +1185,7 @@ text = "AUTHORS"
 [node name="VSeparator2" type="VSeparator" parent="VBoxContainer/HBoxContainer" unique_id=1187218587]
 layout_mode = 2
 
-[node name="Button3" parent="VBoxContainer/HBoxContainer" unique_id=436453552 instance=ExtResource("4_cp0ys")]
+[node name="ExitButton" parent="VBoxContainer/HBoxContainer" unique_id=436453552 instance=ExtResource("4_cp0ys")]
 custom_minimum_size = Vector2(350, 35)
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
@@ -1196,3 +1198,6 @@ layout_mode = 2
 stream = ExtResource("3_n45e2")
 autoplay = true
 bus = &"BGM"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]

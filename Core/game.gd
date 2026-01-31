@@ -5,13 +5,19 @@ var player : Player
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("DebugQuit"):
-		get_tree().quit()
+		quit_to_desktop()
 	elif event.is_action_pressed("DebugCursor"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED else Input.MOUSE_MODE_VISIBLE
 
 func start_game() -> void:
 	load_gameplay_scene()
 	reset_collectibles()
+
+func quit_to_title() -> void:
+	load_menu_scene()
+
+func quit_to_desktop() -> void:
+	get_tree().quit()
 
 #region Collectibles
 

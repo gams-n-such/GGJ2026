@@ -17,7 +17,7 @@ instance_dock/preview_resolution=Vector2i(64, 64)
 
 config/name="Prismask"
 config/tags=PackedStringArray("jams")
-run/main_scene="uid://dweh6bwy8lxy4"
+run/main_scene="uid://cx8nkv1sc72a5"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
