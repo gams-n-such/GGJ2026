@@ -14,6 +14,7 @@ var landing_velocity
 var distance = 0
 var footstep_distance = 2.1
 
+var is_mouse_visible : bool = false 
 
 func _ready() -> void:
 	add_to_group("Player")
@@ -25,7 +26,12 @@ func _input(event: InputEvent) -> void:
 		rotation_degrees.y -= event.relative.x / 10
 		%Camera3D.rotation_degrees.x -= event.relative.y / 10
 		%Camera3D.rotation_degrees.x = clamp( %Camera3D.rotation_degrees.x, -90, 90 )
-
+	
+	if Input.is_key_pressed(KEY_ESCAPE):
+		is_mouse_visible = !is_mouse_visible
+		
+		if visible: Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+		else: Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():

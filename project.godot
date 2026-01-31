@@ -93,6 +93,15 @@ Dash={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="World"
+3d_physics/layer_2="Environment"
+3d_physics/layer_3="Entities"
+3d_physics/layer_4="Enemy"
+3d_physics/layer_5="Player"
+3d_physics/layer_6="Interaction"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
