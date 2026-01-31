@@ -4,6 +4,8 @@ extends Node
 var current_equipment : Equipment
 var queued_equipment : Equipment
 
+signal equipped(new_equipment : Equipment)
+
 func _ready() -> void:
 	for child in get_children():
 		var equipment := child as Equipment
