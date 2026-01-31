@@ -22,6 +22,8 @@ static func get_player_from(child_node : Node) -> Player:
 		child_node = child_node.get_parent()
 	return null
 
+#region Damage
+
 static func get_damageable_from(child_node : Node) -> Node:
 	if not child_node:
 		return null
@@ -41,3 +43,14 @@ static func get_health_from(child_node : Node) -> Attribute:
 		push_error("Health not found on Damageable node " + str(damageable))
 		return null
 	return health
+
+static func deal_damage(target : Node, damage : float) -> bool:
+	var health := get_health_from(target)
+	if not health:
+		return false
+	if health.value <= 0.0:
+		return false
+	health.add_instant(-damage)
+	return true
+
+#endregion
