@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://b8j5dvefv2fmt" path="res://player/sounds/footsteps/footstep_8.wav" id="9_e7oew"]
 [ext_resource type="AudioStream" uid="uid://48xt4llun7t8" path="res://player/sounds/footsteps/footstep_9.wav" id="10_c35mf"]
 [ext_resource type="AudioStream" uid="uid://dly32slohyd7p" path="res://player/sounds/footsteps/footstep_10.wav" id="11_65viv"]
+[ext_resource type="PackedScene" uid="uid://u6c80onqkda5" path="res://player/player_interactor.tscn" id="12_32hag"]
 [ext_resource type="Script" uid="uid://cmpefrfbpmpfh" path="res://Core/Atributes/attribute.gd" id="12_kb6p2"]
 [ext_resource type="Shader" uid="uid://w77bset6y6lr" path="res://Shaders/Blur.gdshader" id="13_wodsf"]
 [ext_resource type="PackedScene" uid="uid://bipkxexwec852" path="res://Misc/Button/button.tscn" id="14_32hag"]
@@ -56,6 +57,10 @@ unique_name_in_owner = true
 
 [node name="Camera3D" type="Camera3D" parent="HeadPosition/LandingAnimation" unique_id=1738730421]
 unique_name_in_owner = true
+
+[node name="Interactor" parent="HeadPosition/LandingAnimation/Camera3D" unique_id=553457367 instance=ExtResource("12_32hag")]
+unique_name_in_owner = true
+target_position = Vector3(0, 0, -3)
 
 [node name="CeilingDetector" type="RayCast3D" parent="." unique_id=1255637517]
 target_position = Vector3(0, 2.1, 0)

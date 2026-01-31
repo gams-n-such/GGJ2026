@@ -5,8 +5,12 @@ extends Node
 
 const group_player := &"Player"
 const group_damageable := &"Damageable"
-const group_collectible := &"Collectible"
 const group_infectable := &"Infectable"
+const group_interactable := &"Interactable"
+
+const group_collectible := &"Collectible"
+const group_parts := &"ShipParts"
+const group_vials := &"Vials"
 
 const nodepath_health := "Health"
 const nodepath_infection := "Infection"
@@ -70,3 +74,14 @@ static func find_infection_component(target : Node) -> Infection:
 		push_error("Infection node not found on Infectable node " + str(infectable))
 		return null
 	return infection
+
+static func get_interactable_from(child_node : Node) -> InteractionTrigger:
+	var interactable := find_parent_in_group(child_node, group_interactable)
+	if not interactable:
+		push_warning("Node " + str(child_node) + " is not a child of an Interactable node!")
+		return null
+	var trigger := interactable as InteractionTrigger
+	if not trigger:
+		push_error("Intaractable node " + str(interactable) + " is not an InteractionTrigger")
+		return null
+	return trigger

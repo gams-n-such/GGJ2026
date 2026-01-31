@@ -17,6 +17,8 @@ var footstep_distance = 2.1
 
 var is_mouse_visible : bool = false 
 
+@onready var interactor : PlayerInteractorBase = %Interactor
+
 func _ready() -> void:
 	Game.player = self
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -27,7 +29,9 @@ func _input(event: InputEvent) -> void:
 		rotation_degrees.y -= event.relative.x / 10
 		%Camera3D.rotation_degrees.x -= event.relative.y / 10
 		%Camera3D.rotation_degrees.x = clamp( %Camera3D.rotation_degrees.x, -90, 90 )
-	
+	elif event.is_action_pressed("Interact"):
+		interactor.begin_interaction()
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * 2 * delta

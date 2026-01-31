@@ -9,7 +9,7 @@ radius = 0.4
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o08pu"]
 size = Vector2(40, 40)
 
-[node name="PickUpBase" type="Node3D" unique_id=2075860667 groups=["Collectible"]]
+[node name="PickUpBase" type="Node3D" unique_id=2075860667 groups=["Collectible", "ShipParts"]]
 script = ExtResource("1_2spxw")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=244689739]

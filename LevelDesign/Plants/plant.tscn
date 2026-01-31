@@ -77,6 +77,7 @@ full_infection = SubResource("AtlasTexture_q7kuy")
 [node name="RotateToCamera" parent="." unique_id=1718437271 instance=ExtResource("1_uamvw")]
 
 [node name="Sprite3D" type="Sprite3D" parent="RotateToCamera" unique_id=1377242938]
+unique_name_in_owner = true
 transform = Transform3D(0.9985111, 0.054549355, 0, -0.054549355, 0.9985111, 0, 0, 0, 1, 0, 2.6543531, 2.7196453)
 material_override = SubResource("ShaderMaterial_7khfl")
 texture = ExtResource("2_uamvw")

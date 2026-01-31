@@ -11,7 +11,7 @@ func _input(event: InputEvent) -> void:
 
 func start_game() -> void:
 	load_gameplay_scene()
-	reset_parts()
+	reset_collectibles()
 
 #region Collectibles
 
@@ -19,19 +19,35 @@ var collected_parts : int = 0
 var delivered_parts : int = 0
 var total_parts : int = 0
 
-func reset_parts() -> void:
-	collected_parts = 0
-	delivered_parts = 0
-	var collectibles := get_tree().get_nodes_in_group(Utils.group_collectible)
-	for item in collectibles:
-		pass
-
 func collect_part() -> void:
 	collected_parts += 1
 
-func deliver_parts() -> void:
+var collected_vials : int = 0
+var delivered_vials : int = 0
+var total_vials : int = 0
+
+func collect_vial() -> void:
+	collected_vials += 1
+
+func reset_collectibles() -> void:
+	collected_parts = 0
+	delivered_parts = 0
+	total_parts = 0
+	collected_vials = 0
+	delivered_vials = 0
+	total_vials = 0
+	var collectibles := get_tree().get_nodes_in_group(Utils.group_collectible)
+	for item in collectibles:
+		if item.is_in_group(Utils.group_parts):
+			total_parts += 1
+		if item.is_in_group(Utils.group_vials):
+			total_vials += 1
+
+func deliver_collectibles() -> void:
 	delivered_parts += collected_parts
 	collected_parts = 0
+	delivered_vials += collected_vials
+	collected_vials = 0
 	check_win_conditions()
 
 #endregion
@@ -39,8 +55,8 @@ func deliver_parts() -> void:
 #region Win Conditions
 
 func check_win_conditions() -> void:
-	# TODO: win conditions
-	pass
+	if delivered_parts >= total_parts and delivered_vials >= total_vials:
+		win()
 
 func win() -> void:
 	# TODO: game over screen
