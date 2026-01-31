@@ -1,4 +1,5 @@
 extends Button
+class_name advance_button
 
 @onready var accept: AudioStreamPlayer = $Accept
 @onready var decline: AudioStreamPlayer = $Decline

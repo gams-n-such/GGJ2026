@@ -36,8 +36,8 @@ func _on_resume_pressed() -> void:
 	resume()
 
 func _on_exit_pressed() -> void:
-	visible = false
 	get_tree().paused = false
+	Game.load_menu_scene()
 
 
 func _on_options_pressed() -> void:

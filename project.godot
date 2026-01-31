@@ -29,6 +29,10 @@ buses/default_bus_layout="uid://dbqdepthedi1i"
 
 Game="*uid://cs34d64dgwg7p"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg")
