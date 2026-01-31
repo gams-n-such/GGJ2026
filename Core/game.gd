@@ -6,6 +6,8 @@ var player : Player
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("DebugQuit"):
 		get_tree().quit()
+	elif event.is_action_pressed("DebugCursor"):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED else Input.MOUSE_MODE_VISIBLE
 
 func start_game() -> void:
 	load_gameplay_scene()
