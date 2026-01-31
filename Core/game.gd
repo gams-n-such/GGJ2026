@@ -55,8 +55,8 @@ func deliver_collectibles() -> void:
 #region Win Conditions
 
 func check_win_conditions() -> void:
-	# TODO: win conditions
-	pass
+	if delivered_parts >= total_parts and delivered_vials >= total_vials:
+		win()
 
 func win() -> void:
 	# TODO: game over screen
