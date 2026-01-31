@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://s8mtaap2ovff"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2v4vv"]
+albedo_color = Color(0.043211274, 0.25724176, 1.3717264e-06, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mua2h"]
+material = SubResource("StandardMaterial3D_2v4vv")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yq30g"]
+
+[node name="Forest" type="Node3D" unique_id=567908747]
+
+[node name="TestRoot" type="Node3D" parent="." unique_id=928674397]
+transform = Transform3D(10, 0, 0, 0, 4, 0, 0, 0, 10, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TestRoot" unique_id=734611874]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_mua2h")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TestRoot/MeshInstance3D" unique_id=1225126735]
+collision_mask = 255
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TestRoot/MeshInstance3D/StaticBody3D" unique_id=610989619]
+shape = SubResource("BoxShape3D_yq30g")
