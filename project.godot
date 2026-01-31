@@ -48,6 +48,7 @@ Plants=""
 Damageable="You can expect these nodes to have \"Health\" Attribute node attached directly to them"
 Collectible=""
 Infectable="Enemies and plants thet can be infected or healed"
+Interactable="Interaction triggers"
 
 [gui]
 

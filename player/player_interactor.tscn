@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://u6c80onqkda5"]
+
+[ext_resource type="Script" uid="uid://d0bcmuh665rml" path="res://player/player_interactor.gd" id="1_nl6ft"]
+
+[node name="InteractionDetect" type="RayCast3D" unique_id=553457367]
+target_position = Vector3(0, 0, -2)
+collision_mask = 32
+hit_from_inside = true
+collide_with_areas = true
+collide_with_bodies = false
+script = ExtResource("1_nl6ft")
+
+[node name="InteractionTimer" type="Timer" parent="." unique_id=1803999023]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="InteractionTimer" to="." method="_on_interaction_timer_timeout"]

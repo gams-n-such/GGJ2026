@@ -1,0 +1,6 @@
+class_name InteractionTrigger
+extends Area3D
+
+signal interaction_started
+signal interaction_complete
+signal interaction_aborted
