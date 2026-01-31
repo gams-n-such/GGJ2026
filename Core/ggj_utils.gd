@@ -9,6 +9,7 @@ const group_collectible := &"Collectible"
 const group_infectable := &"Infectable"
 
 const nodepath_health := "$Health"
+const nodepath_infection := "$Infection"
 
 #endregion
 
@@ -64,7 +65,7 @@ static func find_infection_component(target : Node) -> Infection:
 	if not infectable:
 		push_warning("Node " + str(target) + " is not a child of an Infectable node!")
 		return null
-	var infection := infectable.get_node(nodepath_health) as Infection
+	var infection := infectable.get_node(nodepath_infection) as Infection
 	if not infection:
 		push_error("Infection node not found on Infectable node " + str(infectable))
 		return null
