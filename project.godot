@@ -34,6 +34,7 @@ enabled=PackedStringArray("res://addons/InstanceDock/plugin.cfg", "res://addons/
 folder_colors={
 "res://Assets/": "green",
 "res://Core/": "orange",
+"res://LevelDesign/": "yellow",
 "res://Misc/": "purple",
 "res://Shaders/": "pink",
 "res://addons/": "gray"
