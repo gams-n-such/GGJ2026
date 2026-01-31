@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody3D
 
 
@@ -17,7 +18,7 @@ var footstep_distance = 2.1
 var is_mouse_visible : bool = false 
 
 func _ready() -> void:
-	add_to_group("Player")
+	Game.player = self
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 

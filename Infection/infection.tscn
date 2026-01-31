@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bdvvcs0gpvtmr"]
+
+[ext_resource type="Script" uid="uid://dun8pool65l3u" path="res://Infection/infection.gd" id="1_e0k3c"]
+
+[node name="Infection" type="Node" unique_id=479001063]
+script = ExtResource("1_e0k3c")
+
+[node name="IncubationTimer" type="Timer" parent="." unique_id=252688265]
+unique_name_in_owner = true
+
+[node name="ImmunityTimer" type="Timer" parent="." unique_id=41387302]
+unique_name_in_owner = true
+
+[node name="HealTimer" type="Timer" parent="." unique_id=808473988]
+unique_name_in_owner = true
+
+[connection signal="timeout" from="IncubationTimer" to="." method="_on_incubation_timer_timeout"]
+[connection signal="timeout" from="HealTimer" to="." method="_on_heal_timer_timeout"]

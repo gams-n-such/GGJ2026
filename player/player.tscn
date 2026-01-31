@@ -20,7 +20,7 @@ height = 1.85
 radius = 0.4
 height = 1.85
 
-[node name="Player" type="CharacterBody3D" unique_id=1158226171]
+[node name="Player" type="CharacterBody3D" unique_id=1158226171 groups=["Damageable", "Player"]]
 collision_layer = 16
 collision_mask = 7
 script = ExtResource("1_oul6g")

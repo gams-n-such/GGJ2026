@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://datbyen2xn34d"]
+
+[ext_resource type="Script" uid="uid://cbm2wi8tf7avy" path="res://Collectibles/pick_up_base.gd" id="1_2spxw"]
+[ext_resource type="PackedScene" uid="uid://6y57hvifonvu" path="res://Core/rotate_to_camera.tscn" id="1_8kmt0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_o08pu"]
+radius = 0.4
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_o08pu"]
+size = Vector2(40, 40)
+
+[node name="PickUpBase" type="Node3D" unique_id=2075860667 groups=["Collectible"]]
+script = ExtResource("1_2spxw")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=244689739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=55606861]
+shape = SubResource("SphereShape3D_o08pu")
+
+[node name="RotateToCamera" parent="Area3D" unique_id=1718437271 instance=ExtResource("1_8kmt0")]
+
+[node name="Sprite3D" type="Sprite3D" parent="Area3D/RotateToCamera" unique_id=1767150872]
+texture = SubResource("PlaceholderTexture2D_o08pu")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
