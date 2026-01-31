@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bh0l7ugxwk4ho"]
+[gd_scene format=3 uid="uid://bhf8d7ghtnd8u"]
 
 [ext_resource type="Script" uid="uid://ckdu845qisc82" path="res://LevelDesign/Plants/Plant.gd" id="1_bcplt"]
 [ext_resource type="PackedScene" uid="uid://6y57hvifonvu" path="res://Core/rotate_to_camera.tscn" id="1_uamvw"]
@@ -6,19 +6,19 @@
 [ext_resource type="PackedScene" uid="uid://bdvvcs0gpvtmr" path="res://Infection/infection.tscn" id="4_dcim6"]
 [ext_resource type="Shader" uid="uid://d2gfk2lbwwgms" path="res://Shaders/WindSway.gdshader" id="4_uamvw"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_idfef"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2k1p"]
 atlas = ExtResource("2_uamvw")
 region = Rect2(243, 1824, 1004, 549)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l5jkp"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjyij"]
 atlas = ExtResource("2_uamvw")
 region = Rect2(243, 1016, 1004, 547)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lgikq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7kuy"]
 atlas = ExtResource("2_uamvw")
 region = Rect2(243, 131, 969, 597)
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vg6mw"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7khfl"]
 render_priority = 0
 shader = ExtResource("4_uamvw")
 shader_parameter/albedo_texture = ExtResource("2_uamvw")
@@ -33,7 +33,7 @@ loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:rotation")
+tracks/0/path = NodePath("RotateToCamera/Sprite3D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -48,7 +48,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite3D:rotation")
+tracks/0/path = NodePath("RotateToCamera/Sprite3D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -58,45 +58,46 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, -0.054576445)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_idfef"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sqyj5"]
 _data = {
 &"Plant": SubResource("Animation_vg6mw"),
 &"RESET": SubResource("Animation_dcim6")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_uamvw"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_wqpwy"]
 size = Vector3(17.798706, 15.266724, 19.176392)
 
-[node name="RotateToCamera" unique_id=1718437271 instance=ExtResource("1_uamvw")]
-
-[node name="Plant" type="Node3D" parent="." index="0" unique_id=1570575129 groups=["Infectable"]]
+[node name="Plant" type="Node3D" unique_id=1167637988 groups=["Infectable"]]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 script = ExtResource("1_bcplt")
-none_infection = SubResource("AtlasTexture_idfef")
-half_infection = SubResource("AtlasTexture_l5jkp")
-full_infection = SubResource("AtlasTexture_lgikq")
+none_infection = SubResource("AtlasTexture_p2k1p")
+half_infection = SubResource("AtlasTexture_fjyij")
+full_infection = SubResource("AtlasTexture_q7kuy")
 
-[node name="Sprite3D" type="Sprite3D" parent="Plant" index="0" unique_id=818365290]
-transform = Transform3D(0.9985111, 0.054549355, 0, -0.054549355, 0.9985111, 0, 0, 0, 1, 0, 2.6543531, 2.719645)
-material_override = SubResource("ShaderMaterial_vg6mw")
+[node name="RotateToCamera" parent="." unique_id=1718437271 instance=ExtResource("1_uamvw")]
+
+[node name="Sprite3D" type="Sprite3D" parent="RotateToCamera" unique_id=1377242938]
+transform = Transform3D(0.9985111, 0.054549355, 0, -0.054549355, 0.9985111, 0, 0, 0, 1, 0, 2.6543531, 2.7196453)
+material_override = SubResource("ShaderMaterial_7khfl")
 texture = ExtResource("2_uamvw")
 hframes = 3
 vframes = 3
 frame = 6
 
-[node name="Infection" parent="Plant" index="1" unique_id=479001063 instance=ExtResource("4_dcim6")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Plant" index="2" unique_id=1439622947]
-libraries/ = SubResource("AnimationLibrary_idfef")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RotateToCamera" unique_id=1989177883]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_sqyj5")
 autoplay = &"Plant"
 
-[node name="Area3D" type="Area3D" parent="Plant" index="3" unique_id=812520807]
+[node name="Infection" parent="." unique_id=479001063 instance=ExtResource("4_dcim6")]
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1460841489]
 collision_layer = 2
 collision_mask = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Plant/Area3D" index="0" unique_id=1759163138]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=40700877]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1397094, 7.133362, -0.5265501)
-shape = SubResource("BoxShape3D_uamvw")
+shape = SubResource("BoxShape3D_wqpwy")
 
-[connection signal="infection_state_changed" from="Plant/Infection" to="Plant" method="_on_infection_infection_state_changed"]
-[connection signal="body_entered" from="Plant/Area3D" to="Plant" method="_on_area_3d_body_entered"]
+[connection signal="infection_state_changed" from="Infection" to="." method="_on_infection_infection_state_changed"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

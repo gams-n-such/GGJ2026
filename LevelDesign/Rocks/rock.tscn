@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ly1luy43xmkk"]
+
+[ext_resource type="PackedScene" uid="uid://bhvpgku2ogu85" path="res://LevelDesign/Rocks/Assets/stone.fbx" id="1_18lrb"]
+
+[node name="Rock" type="Node3D" unique_id=1621418835]
+
+[node name="Root" type="Node3D" parent="." unique_id=564194009]
+
+[node name="stone" parent="Root" unique_id=393354666 instance=ExtResource("1_18lrb")]
