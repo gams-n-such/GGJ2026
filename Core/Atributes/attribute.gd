@@ -38,7 +38,17 @@ var percent : float:
 			return 1.0
 
 func _init() -> void:
-	base_value = _starting_value
+	pass
+
+var initialized := false
+
+func init_attribute() -> void:
+	if not initialized:
+		base_value = _starting_value
+		initialized = true
+
+func _enter_tree() -> void:
+	init_attribute()
 
 func _ready() -> void:
 	pass
