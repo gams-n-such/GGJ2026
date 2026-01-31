@@ -33,7 +33,7 @@ static func get_damageable_from(child_node : Node) -> Node:
 static func get_health_from(child_node : Node) -> Attribute:
 	var damageable := get_damageable_from(child_node)
 	if not damageable:
-		push_error("Node " + str(child_node) + " is not a child of a Damageable node!")
+		push_warning("Node " + str(child_node) + " is not a child of a Damageable node!")
 		return null
 	var health := damageable.get_node(nodepath_health) as Attribute
 	if not health:
