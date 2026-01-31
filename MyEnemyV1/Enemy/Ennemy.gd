@@ -20,16 +20,32 @@ extends CharacterBody3D
 @export_range(2, 10, 0.5) var wander_speed: float = 1.5  # Скорость патрулирования
 @export_range(1, 10, 0.5) var wander_wait_time: float = 3.0  # Время ожидания на точке
 
+# Настройки атаки
+@export_range(0.5, 5.0, 0.1) var attack_cooldown: float = 1.5  # Время между атаками в секундах
+@export_range(0.0, 3.0, 0.1) var initial_attack_delay: float = 0.8  # Задержка перед первой атакой
+
 var player
 var current_state = "idle"  # idle, chase, flee, wander
 var wander_target: Vector3
 var wander_timer: float = 0.0
 var wait_timer: float = 0.0
 
+# Переменные для системы атаки
+var attack_timer: float = 0.0  # Таймер кулдауна атаки
+var can_attack: bool = false  # Может ли враг атаковать
+var first_sight_timer: float = 0.0  # Таймер задержки первой атаки
+var has_seen_player: bool = false  # Видел ли враг игрока хотя бы раз
+
 func _ready() -> void:
 	player = get_tree().get_first_node_in_group("Player")
 	if can_wander:
 		_set_new_wander_target()
+	
+	# Инициализируем систему атаки
+	can_attack = false
+	attack_timer = 0.0
+	first_sight_timer = 0.0
+	has_seen_player = false
 
 func _physics_process(delta: float) -> void:
 	if not player:
@@ -37,6 +53,9 @@ func _physics_process(delta: float) -> void:
 	
 	var distance_to_player = position.distance_to(player.global_position)
 	var can_see_player = _can_see_player()
+	
+	# Обрабатываем задержку первой атаки
+	_update_attack_readiness(delta, can_see_player)
 	
 	# Определяем состояние врага
 	_update_state(distance_to_player, can_see_player)
@@ -61,11 +80,11 @@ func _physics_process(delta: float) -> void:
 		else:
 			look_at(player.global_position)
 	
-	# Проверяем атаку
-	if raycast.is_colliding() and current_state == "chase":
-		print("enemy attacking")
-		Utils.deal_damage(player,1)
-		# Здесь можно добавить логику атаки
+	# Проверяем атаку с кулдауном
+	if raycast.is_colliding() and current_state == "chase" and can_attack:
+		var collider = raycast.get_collider()
+		if collider and collider.is_in_group("Player"):
+			_perform_attack()
 	
 	# Анимации
 	if velocity.length() > 0.1:
@@ -74,6 +93,40 @@ func _physics_process(delta: float) -> void:
 	else:
 		# play idle
 		pass
+
+func _update_attack_readiness(delta: float, sees_player: bool) -> void:
+	# Если враг видит игрока впервые
+	if sees_player and not has_seen_player:
+		has_seen_player = true
+		first_sight_timer = 0.0
+		can_attack = false
+	
+	# Если враг потерял игрока из виду, сбрасываем готовность к атаке
+	if not sees_player and has_seen_player:
+		has_seen_player = false
+		can_attack = false
+		first_sight_timer = 0.0
+		attack_timer = 0.0
+	
+	# Отсчитываем задержку до первой атаки
+	if has_seen_player and not can_attack:
+		first_sight_timer += delta
+		if first_sight_timer >= initial_attack_delay:
+			can_attack = true
+			attack_timer = 0.0  # Сбрасываем таймер для первой атаки
+	
+	# Отсчитываем кулдаун атаки
+	if attack_timer > 0.0:
+		attack_timer -= delta
+
+func _perform_attack() -> void:
+	# Проверяем, прошел ли кулдаун
+	if attack_timer <= 0.0:
+		print("Enemy attacking!")
+		Utils.deal_damage(player, 1)
+		
+		# Устанавливаем кулдаун
+		attack_timer = attack_cooldown
 
 func _update_state(distance: float, can_see: bool) -> void:
 	if can_flee and can_see and distance <= flee_distance:
