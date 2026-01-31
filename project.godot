@@ -15,7 +15,7 @@ instance_dock/preview_resolution=Vector2i(64, 64)
 
 [application]
 
-config/name="GGJ2026"
+config/name="Prismask"
 config/tags=PackedStringArray("jams")
 run/main_scene="uid://dweh6bwy8lxy4"
 config/features=PackedStringArray("4.6", "GL Compatibility")
