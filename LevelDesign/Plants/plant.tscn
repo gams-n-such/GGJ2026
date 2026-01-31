@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://bh0l7ugxwk4ho"]
 
-[ext_resource type="Script" uid="uid://ckdu845qisc82" path="res://Assets/Plants/Plant.gd" id="1_bcplt"]
+[ext_resource type="Script" uid="uid://ckdu845qisc82" path="res://LevelDesign/Plants/Plant.gd" id="1_bcplt"]
 [ext_resource type="PackedScene" uid="uid://6y57hvifonvu" path="res://Core/rotate_to_camera.tscn" id="1_uamvw"]
-[ext_resource type="Texture2D" uid="uid://yfogx8kralfq" path="res://Assets/Plants/Plants.png" id="2_uamvw"]
+[ext_resource type="Texture2D" uid="uid://yfogx8kralfq" path="res://LevelDesign/Plants/Assets/Plants.png" id="2_uamvw"]
 [ext_resource type="PackedScene" uid="uid://bdvvcs0gpvtmr" path="res://Infection/infection.tscn" id="4_dcim6"]
-[ext_resource type="Shader" uid="uid://d2gfk2lbwwgms" path="res://Assets/Plants/WindSway.gdshader" id="4_uamvw"]
+[ext_resource type="Shader" uid="uid://d2gfk2lbwwgms" path="res://Shaders/WindSway.gdshader" id="4_uamvw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_idfef"]
 atlas = ExtResource("2_uamvw")
