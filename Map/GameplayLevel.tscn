@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bihovf71jpogd" path="res://Map/image.png" id="1_h2o3b"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://player/player.tscn" id="2_aheag"]
+[ext_resource type="PackedScene" uid="uid://cbkq3k7xyyaja" path="res://Collectibles/viral_vial.tscn" id="4_0tny2"]
 [ext_resource type="PackedScene" uid="uid://cjglwnjn2w7jp" path="res://LevelDesign/Temple/temple.tscn" id="5_0tny2"]
 [ext_resource type="PackedScene" uid="uid://s8mtaap2ovff" path="res://LevelDesign/Trees/forest.tscn" id="5_1wk0u"]
 [ext_resource type="PackedScene" uid="uid://cnhfyrc3aymu5" path="res://LevelDesign/Ship/space_ship.tscn" id="5_7emhl"]
@@ -289,8 +290,31 @@ transform = Transform3D(2.2080948, -0.0032590695, 0.18255389, -1.9644077e-07, -5
 [node name="Forest22" parent="Trees" unique_id=2033198003 instance=ExtResource("5_1wk0u")]
 transform = Transform3D(3.0639772, -0.00023602512, 0.013258946, -2.6832393e-07, -5.7746105, -0.003013075, 0.041051272, 0.0175787, -0.9896187, 2.6346931, 23.11351, 220.20665)
 
+[node name="Forest" parent="Trees" unique_id=603432521 instance=ExtResource("5_1wk0u")]
+transform = Transform3D(0.8660254, -9.313226e-10, -0.5, 9.313226e-10, 1.9241288, 0, 0.50000006, 1.8626451e-09, 0.86602545, -67.08061, 1.9073486e-06, 95.96776)
+
+[node name="Forest14" parent="Trees" unique_id=1951268120 instance=ExtResource("5_1wk0u")]
+transform = Transform3D(0.8660254, -9.313226e-10, -0.5, 9.313226e-10, 1.9241288, 0, 0.50000006, 1.8626451e-09, 0.86602545, -75.749054, 1.9073486e-06, 91.03337)
+
+[node name="Forest34" parent="Trees" unique_id=1054736297 instance=ExtResource("5_1wk0u")]
+transform = Transform3D(0.8660254, -9.313226e-10, -0.5, 9.313226e-10, 1.9241288, 0, 0.50000006, 1.8626451e-09, 0.86602545, -49.495663, 0, 69.74016)
+
+[node name="Forest90" parent="Trees" unique_id=1651707539 instance=ExtResource("5_1wk0u")]
+transform = Transform3D(0.8660254, -9.313226e-10, -0.5, 9.313226e-10, 1.9241288, 0, 0.50000006, 1.8626451e-09, 0.86602545, -58.164112, 1.9073486e-06, 64.805786)
+
 [node name="Temple" parent="." unique_id=210963498 instance=ExtResource("5_0tny2")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -107.92894, 1.0961132, -190.87555)
 
 [node name="SpaceShip" parent="." unique_id=1147634907 instance=ExtResource("5_7emhl")]
 transform = Transform3D(0.95941347, 0.2818992, -0.0076715667, -0.27743217, 0.938633, -0.20493731, -0.050570883, 0.19874793, 0.97874504, 3.8945103, 0.68901753, -12.779632)
+
+[node name="Node" type="Node" parent="." unique_id=1647775815]
+
+[node name="ViralVial" parent="Node" unique_id=1087167254 instance=ExtResource("4_0tny2")]
+transform = Transform3D(0.8660254, -2.1855694e-08, 0.5, -0.4829629, -0.25881907, 0.83651626, 0.12940952, -0.9659258, -0.2241439, -107.88928, 18.635666, -185.68265)
+
+[node name="ViralVial2" parent="Node" unique_id=645350469 instance=ExtResource("4_0tny2")]
+transform = Transform3D(0.48296288, -0.52086616, 0.70387876, -0.25881904, 0.68301266, 0.68301266, -0.83651626, -0.512047, 0.19505972, 4.1538315, 0, -150.85252)
+
+[node name="ViralVial3" parent="Node" unique_id=692354064 instance=ExtResource("4_0tny2")]
+transform = Transform3D(0.8660254, 2.1855694e-08, -0.5, 0.5, -3.7855173e-08, 0.8660254, 0, -1, -4.371139e-08, 2.787384, 0.2527845, 141.97295)
