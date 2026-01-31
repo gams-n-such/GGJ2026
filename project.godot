@@ -25,6 +25,10 @@ config/icon="res://icon.svg"
 
 Game="*uid://cs34d64dgwg7p"
 
+[display]
+
+window/size/mode=3
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg")
