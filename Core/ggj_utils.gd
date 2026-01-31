@@ -1,14 +1,42 @@
 class_name Utils
 extends Node
 
+#region Names
+
+const group_damageable := &"Damageable"
+
+const node_health := &"Health"
+const nodepath_health := "$Health"
+
+#endregion
+
 static func get_player_from(child_node : Node) -> Player:
 	if not child_node:
 		return null
 	if not child_node.is_inside_tree():
 		return null
-	var root := child_node.get_tree().root
-	while child_node and root:
+	while child_node:
 		if child_node is Player:
 			return child_node
 		child_node = child_node.get_parent()
 	return null
+
+static func get_damageable_from(child_node : Node) -> Node:
+	if not child_node:
+		return null
+	while child_node:
+		if child_node.is_in_group(group_damageable):
+			return child_node
+		child_node = child_node.get_parent()
+	return null
+
+static func get_health_from(child_node : Node) -> Attribute:
+	var damageable := get_damageable_from(child_node)
+	if not damageable:
+		push_error("Node " + str(child_node) + " is not a child of a Damageable node!")
+		return null
+	var health := damageable.get_node(nodepath_health) as Attribute
+	if not health:
+		push_error("Health not found on Damageable node " + str(damageable))
+		return null
+	return health

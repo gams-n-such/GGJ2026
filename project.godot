@@ -34,6 +34,7 @@ enabled=PackedStringArray("res://addons/InstanceDock/plugin.cfg", "res://addons/
 Player="Player character"
 Plants=""
 Collectibles=""
+Damageable="You can expect these nodes to have \"Health\" Attribute node attached directly to them"
 
 [input]
 
