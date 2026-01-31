@@ -21,9 +21,10 @@ shape = SubResource("CapsuleShape3D_jqrbl")
 transform = Transform3D(0.5169566, 0, 0, 0, 0.75916636, 0, 0, 0, 1, 0, 1.0396684, 0)
 texture = ExtResource("2_am0pq")
 
-[node name="Health" type="Node" parent="." unique_id=121723286]
+[node name="Health" type="Node" parent="." unique_id=1066641968]
 unique_name_in_owner = true
 script = ExtResource("4_eqilm")
 _starting_value = 100.0
 has_max_value = true
 max_value = 100.0
+metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
