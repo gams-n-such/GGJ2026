@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://player/player.tscn" id="1_mncer"]
 [ext_resource type="PackedScene" uid="uid://gcaaanlvm7ue" path="res://MyEnemyV1/Enemy/ennemy.tscn" id="2_cguwc"]
-[ext_resource type="PackedScene" uid="uid://bh0l7ugxwk4ho" path="res://Assets/Plants/plant.tscn" id="3_wicfy"]
+[ext_resource type="PackedScene" uid="uid://bh0l7ugxwk4ho" path="res://LevelDesign/Plants/plant.tscn" id="3_wicfy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mncer"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -48,21 +48,27 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27139473, 0.6646067, 0.1076
 
 [node name="Ennemy" parent="." unique_id=609859506 instance=ExtResource("2_cguwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.866001, 1.2310052, 19.083164)
+detect_distance = 10
 
 [node name="Ennemy2" parent="." unique_id=1138509945 instance=ExtResource("2_cguwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.311939, 1.2310052, 21.026579)
+detect_distance = 10
 
 [node name="Ennemy3" parent="." unique_id=362015941 instance=ExtResource("2_cguwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.31194, 1.2310052, 22.026579)
+detect_distance = 10
 
 [node name="Ennemy4" parent="." unique_id=2144014951 instance=ExtResource("2_cguwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.31194, 1.2310052, 21.026579)
+detect_distance = 10
 
 [node name="Ennemy5" parent="." unique_id=300407392 instance=ExtResource("2_cguwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.30167, 1.2310052, -28.268148)
+detect_distance = 10
 
 [node name="Ennemy6" parent="." unique_id=813610123 instance=ExtResource("2_cguwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.228773, 1.2310052, -23.383656)
+detect_distance = 10
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=188219772]
 navigation_mesh = SubResource("NavigationMesh_cguwc")
