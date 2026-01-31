@@ -8,8 +8,8 @@ const group_damageable := &"Damageable"
 const group_collectible := &"Collectible"
 const group_infectable := &"Infectable"
 
-const nodepath_health := "$Health"
-const nodepath_infection := "$Infection"
+const nodepath_health := "Health"
+const nodepath_infection := "Infection"
 
 #endregion
 
