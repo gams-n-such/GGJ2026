@@ -41,7 +41,7 @@ mouse_cursor/custom_image="uid://bboss2xtpilag"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg", "res://addons/font_auto_size_labels/plugin.cfg", "res://addons/scene_object_brush/plugin.cfg")
+enabled=PackedStringArray("res://addons/InstanceDock/plugin.cfg", "res://addons/Todo_Manager/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg", "res://addons/font_auto_size_labels/plugin.cfg", "res://addons/scene_object_brush/plugin.cfg")
 
 [file_customization]
 

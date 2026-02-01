@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bhvocspeexu1t" path="res://LevelDesign/Grass/Assets/grass_0.png" id="1_ll7uc"]
 [ext_resource type="PackedScene" uid="uid://jyncanbkjjnq" path="res://player/player.tscn" id="2_aheag"]
+[ext_resource type="PackedScene" uid="uid://gcaaanlvm7ue" path="res://MyEnemyV1/Enemy/ennemy.tscn" id="2_bqslj"]
+[ext_resource type="PackedScene" uid="uid://cnhfyrc3aymu5" path="res://LevelDesign/Ship/space_ship.tscn" id="3_iyjr8"]
 [ext_resource type="PackedScene" uid="uid://cjglwnjn2w7jp" path="res://LevelDesign/Temple/temple.tscn" id="5_0tny2"]
 [ext_resource type="PackedScene" uid="uid://s8mtaap2ovff" path="res://LevelDesign/Trees/forest.tscn" id="5_1wk0u"]
 [ext_resource type="PackedScene" uid="uid://ceda5a0cgwbyi" path="res://LevelDesign/Trees/tree.tscn" id="7_7emhl"]
@@ -30,17 +32,69 @@ ambient_light_color = Color(1, 1, 1, 1)
 
 [node name="GameplayLevel" type="Node3D" unique_id=88697708]
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1380976815]
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=648141917]
+
+[node name="Sprite3D" type="Sprite3D" parent="NavigationRegion3D" unique_id=1380976815]
 transform = Transform3D(50, 0, 0, 0, -2.70378e-06, 50, 0, -61.855278, -2.1855694e-06, 0, 0, 0)
 texture = ExtResource("1_ll7uc")
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=1710573310]
+[node name="StaticBody3D" type="StaticBody3D" parent="NavigationRegion3D" unique_id=1710573310]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1546964839]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D" unique_id=1546964839]
 shape = SubResource("WorldBoundaryShape3D_d8ftj")
 
-[node name="CollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D" unique_id=714319708]
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="NavigationRegion3D/StaticBody3D" unique_id=714319708]
 shape = SubResource("WorldBoundaryShape3D_d8ftj")
+
+[node name="Enemies" type="Node3D" parent="NavigationRegion3D" unique_id=108997378]
+
+[node name="Ennemy" parent="NavigationRegion3D/Enemies" unique_id=609859506 instance=ExtResource("2_bqslj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.706339, 0.46033156, -14.22176)
+
+[node name="Ennemy2" parent="NavigationRegion3D/Enemies" unique_id=2019315627 instance=ExtResource("2_bqslj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.288824, 0.46033156, -34.758137)
+
+[node name="Ennemy3" parent="NavigationRegion3D/Enemies" unique_id=1009972534 instance=ExtResource("2_bqslj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.858337, 0.46033156, -24.929752)
+
+[node name="Ennemy4" parent="NavigationRegion3D/Enemies" unique_id=240696317 instance=ExtResource("2_bqslj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.65883, 0.46033156, -54.99487)
+
+[node name="Ennemy5" parent="NavigationRegion3D/Enemies" unique_id=1335174058 instance=ExtResource("2_bqslj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -69.82837, 1.2136002, -47.647)
+
+[node name="Ennemy6" parent="NavigationRegion3D/Enemies" unique_id=1003732530 instance=ExtResource("2_bqslj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.737568, 1.244989, -81.88145)
+
+[node name="Ennemy7" parent="NavigationRegion3D/Enemies" unique_id=1536861660 instance=ExtResource("2_bqslj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -91.42893, 0.46032774, -72.146484)
+
+[node name="Ennemy8" parent="NavigationRegion3D/Enemies" unique_id=904534730 instance=ExtResource("2_bqslj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -93.22166, 1.2183695, -109.850395)
+
+[node name="Ennemy9" parent="NavigationRegion3D/Enemies" unique_id=1175713387 instance=ExtResource("2_bqslj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -89.65058, 0.46033156, -130.66681)
+
+[node name="Ennemy10" parent="NavigationRegion3D/Enemies" unique_id=1538619901 instance=ExtResource("2_bqslj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1488879, 0.5371401, -40.472923)
+
+[node name="Ennemy11" parent="NavigationRegion3D/Enemies" unique_id=540501350 instance=ExtResource("2_bqslj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.014084, 0.46033156, -21.222027)
+
+[node name="Ennemy12" parent="NavigationRegion3D/Enemies" unique_id=1282180702 instance=ExtResource("2_bqslj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.011368, 1.2602861, -61.770428)
+
+[node name="Ennemy13" parent="NavigationRegion3D/Enemies" unique_id=1677683724 instance=ExtResource("2_bqslj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -82.0755, 0.46033156, -82.05078)
+
+[node name="Ennemy14" parent="NavigationRegion3D/Enemies" unique_id=1101510361 instance=ExtResource("2_bqslj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -95.65109, 0.46033144, -133.00237)
+
+[node name="Ennemy15" parent="NavigationRegion3D/Enemies" unique_id=1783348392 instance=ExtResource("2_bqslj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -143.24205, 0.46033156, -158.41518)
+
+[node name="SpaceShip" parent="NavigationRegion3D/Enemies" unique_id=1147634907 instance=ExtResource("3_iyjr8")]
+transform = Transform3D(0.9914243, 0.13068192, 1.8626451e-09, -0.12954688, 0.9828133, -0.13151245, -0.017186299, 0.13038464, 0.9913146, -49.74725, 0.68902135, -30.97937)
 
 [node name="Player" parent="." unique_id=1158226171 instance=ExtResource("2_aheag")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.978943, 0, -12.477642)
@@ -1983,3 +2037,56 @@ script = ExtResource("7_egwlx")
 brushSize = 250.0
 brushDensity = 150
 paintableObjects = Array[PackedScene]([ExtResource("12_fnf2x")])
+
+[node name="Plants" type="Node3D" parent="." unique_id=91387941]
+
+[node name="Plant" parent="Plants" unique_id=1167637988 instance=ExtResource("12_fnf2x")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -63.21301, 0.93233484, 12.314763)
+
+[node name="Plant2" parent="Plants" unique_id=903050639 instance=ExtResource("12_fnf2x")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -75.99409, 0.76893616, -16.66742)
+
+[node name="Plant3" parent="Plants" unique_id=782375231 instance=ExtResource("12_fnf2x")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -23.529135, 0.849926, 18.787073)
+
+[node name="Plant4" parent="Plants" unique_id=2078074946 instance=ExtResource("12_fnf2x")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -67.58159, 0.028282344, -43.384235)
+
+[node name="Plant5" parent="Plants" unique_id=609742194 instance=ExtResource("12_fnf2x")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -69.55518, 0.68488574, -55.522324)
+
+[node name="Plant6" parent="Plants" unique_id=600546465 instance=ExtResource("12_fnf2x")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -28.126276, 0.02827853, -73.58197)
+
+[node name="Plant7" parent="Plants" unique_id=2044150064 instance=ExtResource("12_fnf2x")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -2.5325963, 0.81149083, -58.046238)
+
+[node name="Plant8" parent="Plants" unique_id=184485975 instance=ExtResource("12_fnf2x")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 15.042651, 0.5494019, -42.83033)
+
+[node name="Plant9" parent="Plants" unique_id=1451207495 instance=ExtResource("12_fnf2x")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -46.673477, 0.02827853, -24.359962)
+
+[node name="Plant10" parent="Plants" unique_id=795544675 instance=ExtResource("12_fnf2x")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -25.35179, 0.02827853, 2.3565102)
+
+[node name="Plant11" parent="Plants" unique_id=476111508 instance=ExtResource("12_fnf2x")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -111.33837, 0.61657333, -84.531525)
+
+[node name="Plant12" parent="Plants" unique_id=1989835033 instance=ExtResource("12_fnf2x")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -82.51268, 0.20990786, -110.66422)
+
+[node name="Plant13" parent="Plants" unique_id=1785513049 instance=ExtResource("12_fnf2x")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -125.3201, 0.32009816, -116.57695)
+
+[node name="Plant14" parent="Plants" unique_id=1817897364 instance=ExtResource("12_fnf2x")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -27.850428, 0.02827853, -68.94476)
+
+[node name="Plant15" parent="Plants" unique_id=1644518928 instance=ExtResource("12_fnf2x")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -40.580894, 0.02827853, -18.373386)
+
+[node name="Plant16" parent="Plants" unique_id=1277146344 instance=ExtResource("12_fnf2x")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -45.37021, 0.02827853, -36.16688)
+
+[node name="Plant17" parent="Plants" unique_id=2024830204 instance=ExtResource("12_fnf2x")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -20.134836, 0.028282344, 1.6127777)

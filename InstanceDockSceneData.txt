@@ -1,6 +1,10 @@
 [{
 "name": "Gameplay",
-"scenes": []
+"scenes": [{
+&"scene": "res://LevelDesign/Plants/plant.tscn"
+}, {
+&"scene": "res://MyEnemyV1/Enemy/ennemy.tscn"
+}]
 }, {
 "name": "Level Art",
 "scenes": []

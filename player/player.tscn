@@ -226,6 +226,7 @@ max_polyphony = 10
 [node name="Health" type="Node" parent="." unique_id=607692312]
 script = ExtResource("12_kb6p2")
 _starting_value = 100.0
+min_value = 15.0
 has_max_value = true
 max_value = 100.0
 metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
