@@ -5,15 +5,28 @@
 [ext_resource type="PackedScene" uid="uid://cjglwnjn2w7jp" path="res://LevelDesign/Temple/temple.tscn" id="5_0tny2"]
 [ext_resource type="PackedScene" uid="uid://s8mtaap2ovff" path="res://LevelDesign/Trees/forest.tscn" id="5_1wk0u"]
 [ext_resource type="PackedScene" uid="uid://ceda5a0cgwbyi" path="res://LevelDesign/Trees/tree.tscn" id="7_7emhl"]
-[ext_resource type="Script" uid="uid://bn42f6f20rnj0" path="res://addons/scene_object_brush/Brush.gd" id="7_egwlx"]
+[ext_resource type="Script" path="res://addons/scene_object_brush/Brush.gd" id="7_egwlx"]
 [ext_resource type="PackedScene" uid="uid://bbdl80vl65f35" path="res://LevelDesign/Grass/grassAsset1.tscn" id="7_ll7uc"]
 [ext_resource type="PackedScene" uid="uid://ly1luy43xmkk" path="res://LevelDesign/Rocks/rock.tscn" id="7_u8v6n"]
-[ext_resource type="PackedScene" uid="uid://b3dt0h00vg6sf" path="res://Collectibles/Assets/CapsuleCrash.fbx" id="8_ll7uc"]
 [ext_resource type="PackedScene" uid="uid://blkb6w2tv2xbx" path="res://LevelDesign/Grass/grassAsset4.tscn" id="9_bqslj"]
-[ext_resource type="PackedScene" uid="uid://2f12wqg442of" path="res://Collectibles/craterMesh.tscn" id="11_ll7uc"]
+[ext_resource type="PackedScene" uid="uid://cbkq3k7xyyaja" path="res://Collectibles/viral_vial.tscn" id="12_bqslj"]
 [ext_resource type="PackedScene" uid="uid://bhf8d7ghtnd8u" path="res://LevelDesign/Plants/plant.tscn" id="12_fnf2x"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_d8ftj"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ll7uc"]
+sky_top_color = Color(0.17739847, 8.480639e-05, 0.5933585, 1)
+sky_horizon_color = Color(0.79, 0.15800004, 0, 1)
+ground_bottom_color = Color(2.4065375e-07, 0.1978631, 0.06625438, 1)
+ground_horizon_color = Color(0.49197578, 3.4172834e-05, 0.40080935, 1)
+
+[sub_resource type="Sky" id="Sky_bqslj"]
+sky_material = SubResource("ProceduralSkyMaterial_ll7uc")
+
+[sub_resource type="Environment" id="Environment_iyjr8"]
+background_mode = 2
+sky = SubResource("Sky_bqslj")
+ambient_light_color = Color(1, 1, 1, 1)
 
 [node name="GameplayLevel" type="Node3D" unique_id=88697708]
 
@@ -34,13 +47,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.978943, 0, -12.477642)
 walk_speed = 10
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1058111591]
-transform = Transform3D(1, 0, 0, 0, 0.7579635, 0.65229696, 0, -0.65229696, 0.7579635, -0.8548584, 47.619133, 0)
+transform = Transform3D(0.9136874, -1.4901161e-08, -0.40641773, 0.17346138, 0.90434337, 0.38996693, 0.36754116, -0.42680568, 0.82628715, -0.8548584, 47.619133, 0)
 directional_shadow_split_1 = 0.025
 directional_shadow_split_2 = 0.235
 directional_shadow_split_3 = 0.335
 directional_shadow_fade_start = 0.585
 directional_shadow_max_distance = 118.0
 directional_shadow_pancake_size = 21.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1001242710]
+environment = SubResource("Environment_iyjr8")
 
 [node name="Forest" type="Node" parent="." unique_id=950146496]
 
@@ -600,7 +616,6 @@ minSize = 0.5
 maxSize = 1.5
 randomRotMin = Vector3(0, 0.3, 0)
 randomRotMax = Vector3(0, 0.8, 0)
-metadata/_custom_type_script = "uid://bn42f6f20rnj0"
 
 [node name="Brush_1769938345_471" parent="BrushGrass" unique_id=934832417 instance=ExtResource("7_ll7uc")]
 transform = Transform3D(-5.4022234e-08, 0, 1.2358847, 0, 0.5, 0, -1.2358847, 0, -5.4022234e-08, -36.359783, 0, 21.147827)
@@ -1954,18 +1969,17 @@ transform = Transform3D(1.0846771, 0, 0.6262385, 0, 0.5, 0, -0.6262385, 0, 1.084
 
 [node name="Cratec+Capsule" type="Node3D" parent="." unique_id=153688226]
 
-[node name="CapsuleCrash" parent="Cratec+Capsule" unique_id=703799566 instance=ExtResource("8_ll7uc")]
-transform = Transform3D(0.7545228, 0, -0.20217377, 0, 0.7811395, 0, 0.20217377, 0, 0.7545228, -106.20068, 23.261759, -186.1641)
+[node name="ViralVial" parent="Cratec+Capsule" unique_id=1087167254 instance=ExtResource("12_bqslj")]
+transform = Transform3D(0.7783089, 0, 0.6278815, 0, 1, 0, -0.6278815, 0, 0.7783089, -108.024376, 23.439215, -193.08365)
 
-[node name="Crater" parent="Cratec+Capsule" unique_id=159071602 instance=ExtResource("11_ll7uc")]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.6324923, 0.15542841, -130.82506)
+[node name="ViralVial2" parent="Cratec+Capsule" unique_id=1332237918 instance=ExtResource("12_bqslj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.61125946, 0.40255952, -138.03474)
 
-[node name="Crater2" parent="Cratec+Capsule" unique_id=1747744296 instance=ExtResource("11_ll7uc")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5.2467227, 1.3659773, 135.53362)
+[node name="ViralVial3" parent="Cratec+Capsule" unique_id=1385563348 instance=ExtResource("12_bqslj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1854792, 0.94973814, 124.02528)
 
 [node name="BrushBush" type="Node3D" parent="." unique_id=1105334167]
 script = ExtResource("7_egwlx")
 brushSize = 250.0
 brushDensity = 150
 paintableObjects = Array[PackedScene]([ExtResource("12_fnf2x")])
-metadata/_custom_type_script = "uid://bn42f6f20rnj0"
