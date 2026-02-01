@@ -211,3 +211,8 @@ func _can_see_player() -> bool:
 		return collider.is_in_group("Player")
 	
 	return false
+
+
+func _on_health_value_changed(attribute: Attribute, new_value: float) -> void:
+	if new_value <= 0:
+		queue_free()
