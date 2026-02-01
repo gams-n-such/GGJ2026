@@ -2,6 +2,35 @@ class_name Player
 extends CharacterBody3D
 
 
+var is_mouse_visible : bool = false 
+
+@onready var camera : Camera3D = %Camera3D
+
+func _ready() -> void:
+	Game.player = self
+	camera.cull_mask = Game.default_camera_layers
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		rotation_degrees.y -= event.relative.x / 10
+		camera.rotation_degrees.x -= event.relative.y / 10
+		camera.rotation_degrees.x = clamp( camera.rotation_degrees.x, -90, 90 )
+	elif event.is_action_pressed("Interact"):
+		interactor.begin_interaction()
+	elif event.is_action_pressed("Attack"):
+		if active_weapon_interactor:
+			active_weapon_interactor.begin_interaction()
+	elif event.is_action_pressed("SwitchWeapon"):
+		if active_mask == combat_mask and active_mask.can_be_used():
+			if active_weapon == sword:
+				weapons_manager.begin_equipping(gun)
+			else:
+				weapons_manager.begin_equipping(sword)
+
+#region Movement
+
 @export var footstep_sound: Array[AudioStream]
 
 @export var run_speed = 5.5
@@ -14,24 +43,6 @@ var landing_velocity
 
 var distance = 0
 var footstep_distance = 2.1
-
-var is_mouse_visible : bool = false 
-
-@onready var interactor : PlayerInteractorBase = %Interactor
-@onready var camera : Camera3D = %Camera3D
-
-func _ready() -> void:
-	Game.player = self
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
-
-func _input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		rotation_degrees.y -= event.relative.x / 10
-		%Camera3D.rotation_degrees.x -= event.relative.y / 10
-		%Camera3D.rotation_degrees.x = clamp( %Camera3D.rotation_degrees.x, -90, 90 )
-	elif event.is_action_pressed("Interact"):
-		interactor.begin_interaction()
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -56,10 +67,11 @@ func _physics_process(delta: float) -> void:
 		speed = run_speed
 		if Input.is_action_pressed("Crouch"):
 			speed = crouch_speed
-		elif Input.is_action_pressed("Walk"):
-			speed = walk_speed
-		elif Input.is_action_just_pressed("Dash"):
-			speed = run_speed
+		else:
+			if Input.is_action_pressed("Dash"):
+				speed = run_speed
+			elif Input.is_action_pressed("Walk"):
+				speed = walk_speed
 
 	if Input.is_action_pressed("Crouch"):
 		$CollisionShape3D.shape.height = lerp($CollisionShape3D.shape.height, 1.38, 0.1)
@@ -101,6 +113,7 @@ func play_random_footstep_sound() -> void:
 	if footstep_sound.size() > 0:
 		$FootstepSound.stream = footstep_sound.pick_random()
 		$FootstepSound.play()
+#endregion
 
 func _on_health_value_changed(attribute: Attribute, new_value: float) -> void:
 	print("HP: " + str(new_value))
@@ -108,3 +121,49 @@ func _on_health_value_changed(attribute: Attribute, new_value: float) -> void:
 	if new_value <= 0:
 		$GUI/HUD.visible = false
 		$GUI/DeathUI.visible = true
+
+#region Equipment
+
+@onready var equipment_manager: EquipmentManager = %MasksManager
+
+@onready var tracking_mask: Mask = %TrackingMask
+@onready var diagnostic_mask: Mask = %DiagnosticMask
+@onready var combat_mask: Mask = %CombatMask
+var active_mask : Mask:
+	get:
+		if equipment_manager.current_equipment:
+			if equipment_manager.current_equipment.can_be_used():
+				return equipment_manager.current_equipment as Mask
+		return null
+
+func _on_mask_changed(new_equipment: Equipment) -> void:
+	pass # Replace with function body.
+
+#endregion
+
+#region Weapons
+
+@onready var interactor : PlayerInteractorBase = %Interactor
+@onready var melee_attack : PlayerInteractorBase = %MeleeAttack
+@onready var shooting_attack : PlayerInteractorBase = %ShootingAttack
+@onready var healing_attack : PlayerInteractorBase = %Heal
+
+@onready var weapons_manager: EquipmentManager = %WeaponsManager
+@onready var sword: Weapon = %Sword
+@onready var gun: Weapon = %Gun
+@onready var healing_ray: Weapon = %HealingRay
+
+var active_weapon : Weapon:
+	get:
+		return weapons_manager.current_equipment as Weapon
+
+var active_weapon_interactor : PlayerInteractorBase:
+	get:
+		if active_weapon and active_weapon.can_be_used():
+			return active_weapon.interactor
+		return null
+
+func _on_weapon_equipped(new_equipment: Equipment) -> void:
+	pass # Replace with function body.
+
+#endregion

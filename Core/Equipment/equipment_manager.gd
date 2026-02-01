@@ -14,9 +14,9 @@ func _ready() -> void:
 
 
 func _on_equip_requested(equipment : Equipment) -> void:
-	_begin_equipping(equipment)
+	begin_equipping(equipment)
 
-func _begin_equipping(equipment : Equipment) -> void:
+func begin_equipping(equipment : Equipment) -> void:
 	queued_equipment = equipment
 	if current_equipment:
 		if current_equipment.active and not current_equipment.transitioning:
@@ -24,7 +24,7 @@ func _begin_equipping(equipment : Equipment) -> void:
 				# Already equipped
 				return
 			else:
-				await current_equipment.unequip()
+				await unequip_current()
 		else:
 			# Already queued new equip, will be donned after transition is complete
 			return
@@ -34,4 +34,9 @@ func _begin_equipping(equipment : Equipment) -> void:
 		current_equipment.equip()
 	if queued_equipment:
 		# If new equipment was queued already, we immediately proceed to equip it
-		_begin_equipping(queued_equipment)
+		begin_equipping(queued_equipment)
+
+func unequip_current() -> void:
+	if current_equipment:
+		await current_equipment.unequip()
+		current_equipment = null

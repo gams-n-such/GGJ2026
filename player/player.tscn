@@ -25,6 +25,7 @@
 [ext_resource type="Resource" uid="uid://dv22k7qfivwud" path="res://Masks/Tracking/tracking_mask.tres" id="19_bjvpn"]
 [ext_resource type="Resource" uid="uid://dtihwdcrq4iuv" path="res://Masks/Diagnostic/diagnostic_mask.tres" id="20_s7qer"]
 [ext_resource type="Resource" uid="uid://c0ewi2fd2rsgb" path="res://Masks/Combat/combat_mask.tres" id="21_g4c7l"]
+[ext_resource type="PackedScene" uid="uid://bbgqe6efr3jeg" path="res://Interaction/weapon.tscn" id="26_7pqkx"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oul6g"]
 radius = 0.4
@@ -42,6 +43,71 @@ shader_parameter/color_over = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_e7oew"]
 font_size = 67
+
+[sub_resource type="Animation" id="Animation_knn7v"]
+resource_name = "Damage"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/vignette_intensity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.425, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/vignette_opacity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.254000012065, 0.254000012065]
+}
+
+[sub_resource type="Animation" id="Animation_rptt4"]
+resource_name = "LowerHealth"
+
+[sub_resource type="Animation" id="Animation_7pqkx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/vignette_intensity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/vignette_opacity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.254000012065]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uw77l"]
+_data = {
+&"Damage": SubResource("Animation_knn7v"),
+&"LowerHealth": SubResource("Animation_rptt4"),
+&"RESET": SubResource("Animation_7pqkx")
+}
 
 [node name="Player" type="CharacterBody3D" unique_id=1158226171 groups=["Damageable", "Player"]]
 collision_layer = 16
@@ -79,7 +145,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 cooldown = 1.0
 
-[node name="HealingRay" parent="HeadPosition/LandingAnimation/Camera3D" unique_id=1577422798 instance=ExtResource("14_g4c7l")]
+[node name="Heal" parent="HeadPosition/LandingAnimation/Camera3D" unique_id=1577422798 instance=ExtResource("14_g4c7l")]
 unique_name_in_owner = true
 cooldown = 1.0
 
@@ -192,23 +258,48 @@ theme_override_font_sizes/font_size = 58
 
 [node name="PauseMenu" parent="UI" unique_id=1869559949 instance=ExtResource("15_wodsf")]
 
-[node name="EquipmentManager" type="Node" parent="." unique_id=467696698]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI" unique_id=867306733]
+libraries/ = SubResource("AnimationLibrary_uw77l")
+
+[node name="MasksManager" type="Node" parent="." unique_id=467696698]
+unique_name_in_owner = true
 script = ExtResource("17_tqiix")
 metadata/_custom_type_script = "uid://8iq1i41swaai"
 
-[node name="TrackingMask" parent="EquipmentManager" unique_id=1789686496 instance=ExtResource("18_e7oew")]
-activate_mask_index = 2
+[node name="TrackingMask" parent="MasksManager" unique_id=1789686496 instance=ExtResource("18_e7oew")]
+unique_name_in_owner = true
+activate_mask_index = 0
 equip_input_action = &"Mask1"
 resource = ExtResource("19_bjvpn")
 
-[node name="DiagnosticMask" parent="EquipmentManager" unique_id=1053106305 instance=ExtResource("18_e7oew")]
-activate_mask_index = 0
+[node name="DiagnosticMask" parent="MasksManager" unique_id=1053106305 node_paths=PackedStringArray("default_weapon") instance=ExtResource("18_e7oew")]
+unique_name_in_owner = true
+activate_mask_index = 2
+default_weapon = NodePath("../../WeaponsManager/HealingRay")
 equip_input_action = &"Mask2"
 resource = ExtResource("20_s7qer")
 
-[node name="CombatMask" parent="EquipmentManager" unique_id=158867615 instance=ExtResource("18_e7oew")]
+[node name="CombatMask" parent="MasksManager" unique_id=158867615 node_paths=PackedStringArray("default_weapon") instance=ExtResource("18_e7oew")]
+unique_name_in_owner = true
 activate_mask_index = 1
+default_weapon = NodePath("../../WeaponsManager/Gun")
 equip_input_action = &"Mask3"
 resource = ExtResource("21_g4c7l")
 
+[node name="WeaponsManager" type="Node" parent="." unique_id=1640595648]
+unique_name_in_owner = true
+script = ExtResource("17_tqiix")
+metadata/_custom_type_script = "uid://8iq1i41swaai"
+
+[node name="Sword" parent="WeaponsManager" unique_id=747473693 instance=ExtResource("26_7pqkx")]
+unique_name_in_owner = true
+
+[node name="Gun" parent="WeaponsManager" unique_id=2042396883 instance=ExtResource("26_7pqkx")]
+unique_name_in_owner = true
+
+[node name="HealingRay" parent="WeaponsManager" unique_id=1820506878 instance=ExtResource("26_7pqkx")]
+unique_name_in_owner = true
+
 [connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]
+[connection signal="equipped" from="MasksManager" to="." method="_on_mask_changed"]
+[connection signal="equipped" from="WeaponsManager" to="." method="_on_weapon_equipped"]
