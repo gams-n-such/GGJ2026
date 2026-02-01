@@ -200,10 +200,12 @@ resource = ExtResource("19_bjvpn")
 
 [node name="DiagnosticMask" parent="EquipmentManager" unique_id=1053106305 instance=ExtResource("18_e7oew")]
 equip_input_action = &"Mask2"
+activate_mask_index = 1
 resource = ExtResource("20_s7qer")
 
 [node name="CombatMask" parent="EquipmentManager" unique_id=158867615 instance=ExtResource("18_e7oew")]
 equip_input_action = &"Mask3"
+activate_mask_index = 2
 resource = ExtResource("21_g4c7l")
 
 [node name="HealingMask" parent="EquipmentManager" unique_id=695713725 instance=ExtResource("18_e7oew")]

@@ -20,7 +20,7 @@ func equip() -> void:
 	await get_tree().create_timer(1.0).timeout
 	transitioning = false
 	active = true
-	get_tree().call_group("MaskSlot","Activate",activate_mask_index)
+	get_tree().call_group("MaskSlot","Activate",1)
 	print("Equipped " + str(self))
 
 func unequip() -> void:

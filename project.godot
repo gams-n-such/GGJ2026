@@ -19,7 +19,9 @@ config/name="Prismask"
 config/tags=PackedStringArray("jams")
 run/main_scene="uid://cx8nkv1sc72a5"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/image="uid://mmqp74p0v4st"
+config/icon="uid://bto0cjdl61118"
 
 [audio]
 
@@ -32,6 +34,7 @@ Game="*uid://cs34d64dgwg7p"
 [display]
 
 window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://bboss2xtpilag"
 
 [editor_plugins]
 
