@@ -2,7 +2,6 @@ class_name Equipment
 extends Node
 
 @export var equip_input_action : StringName
-@export var activate_mask_index : MaskSlot.mask_type
 @export var resource : EquipmentResource
 
 signal equip_requested(equipment : Equipment)
@@ -20,7 +19,6 @@ func equip() -> void:
 	await get_tree().create_timer(1.0).timeout
 	transitioning = false
 	active = true
-	get_tree().call_group("MaskSlot","Activate",1)
 	print("Equipped " + str(self))
 
 func unequip() -> void:

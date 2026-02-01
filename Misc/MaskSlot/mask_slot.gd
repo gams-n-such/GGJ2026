@@ -18,6 +18,6 @@ func _ready() -> void:
 
 func Activate(change_to_mask : mask_type):
 	print("activating mask with index: " + str(change_to_mask))
-	for i in $Hot.get_child_count():
-		$Hot.get_child(i).visible = false
+	for child in $Hot.get_children():
+		child.visible = false
 	$Hot.get_child(change_to_mask).visible = true

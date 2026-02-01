@@ -1,5 +1,7 @@
 extends Equipment
 
+@export var activate_mask_index : MaskSlot.mask_type
+
 var target_camera : Camera3D:
 	get:
 		return Game.player.camera
@@ -19,6 +21,7 @@ func equip() -> void:
 	transitioning = false
 	active = true
 	target_camera.cull_mask = mask_resource.visible_layers
+	get_tree().call_group("MaskSlot", "Activate", activate_mask_index)
 	print("Equipped " + str(self))
 
 func unequip() -> void:
