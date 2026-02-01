@@ -13,3 +13,9 @@ script = ExtResource("2_mwpcs")
 damage = 10.0
 target_group = &"Damageable"
 cooldown = 0.5
+
+[node name="InteractionTimer" parent="." index="0" unique_id=1803999023]
+one_shot = true
+
+[node name="CooldownTimer" parent="." index="1" unique_id=578774992]
+one_shot = true
