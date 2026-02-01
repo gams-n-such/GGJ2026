@@ -2,12 +2,121 @@
 
 [ext_resource type="Script" uid="uid://dc7q2iu6c07r6" path="res://MyEnemyV1/Enemy/Ennemy.gd" id="1_r526v"]
 [ext_resource type="PackedScene" uid="uid://6y57hvifonvu" path="res://Core/rotate_to_camera.tscn" id="2_7wcc1"]
-[ext_resource type="Texture2D" uid="uid://dlphs4uwg1ed8" path="res://MyEnemyV1/Enemy/ttt.png" id="2_k0kgf"]
+[ext_resource type="Texture2D" uid="uid://b7wil1hbnrpv6" path="res://MyEnemyV1/Enemy/neutral_mob_move_attack.png" id="3_7wcc1"]
 [ext_resource type="Script" uid="uid://cmpefrfbpmpfh" path="res://Core/Atributes/attribute.gd" id="3_euw16"]
+[ext_resource type="Texture2D" uid="uid://c061vmnceqg75" path="res://MyEnemyV1/Enemy/infected_mob_run_attack.png" id="3_gp28a"]
 [ext_resource type="PackedScene" uid="uid://bdvvcs0gpvtmr" path="res://Infection/infection.tscn" id="5_7wcc1"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jqrbl"]
-height = 1.8085938
+[sub_resource type="AtlasTexture" id="AtlasTexture_2rxhb"]
+atlas = ExtResource("3_gp28a")
+region = Rect2(6000, 0, 1500, 1500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d0n16"]
+atlas = ExtResource("3_gp28a")
+region = Rect2(4500, 0, 1500, 1500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7x8wp"]
+atlas = ExtResource("3_gp28a")
+region = Rect2(0, 0, 1500, 1500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy6br"]
+atlas = ExtResource("3_gp28a")
+region = Rect2(1500, 0, 1500, 1500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vric"]
+atlas = ExtResource("3_gp28a")
+region = Rect2(3000, 0, 1500, 1500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s70jt"]
+atlas = ExtResource("3_gp28a")
+region = Rect2(4500, 0, 1500, 1500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smtn5"]
+atlas = ExtResource("3_7wcc1")
+region = Rect2(6000, 0, 1500, 1500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6rmxw"]
+atlas = ExtResource("3_7wcc1")
+region = Rect2(4500, 0, 1500, 1500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gp28a"]
+atlas = ExtResource("3_7wcc1")
+region = Rect2(0, 0, 1500, 1500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1vg0"]
+atlas = ExtResource("3_7wcc1")
+region = Rect2(1500, 0, 1500, 1500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6htu"]
+atlas = ExtResource("3_7wcc1")
+region = Rect2(3000, 0, 1500, 1500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgmbb"]
+atlas = ExtResource("3_7wcc1")
+region = Rect2(4500, 0, 1500, 1500)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2rxhb"]
+animations = [{
+"frames": [{
+"duration": 3.0,
+"texture": SubResource("AtlasTexture_2rxhb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d0n16")
+}],
+"loop": true,
+"name": &"Agressive_Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7x8wp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy6br")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vric")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s70jt")
+}],
+"loop": true,
+"name": &"Agressive_Walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 7.0,
+"texture": SubResource("AtlasTexture_smtn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6rmxw")
+}],
+"loop": true,
+"name": &"Neutra_Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gp28a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1vg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t6htu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgmbb")
+}],
+"loop": true,
+"name": &"Neutral_Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d0n16"]
+radius = 0.3
+height = 2.1938477
 
 [node name="Ennemy" type="CharacterBody3D" unique_id=609859506 groups=["Damageable", "Enemies", "Infectable"]]
 collision_layer = 8
@@ -17,13 +126,12 @@ detect_distance = 10
 
 [node name="RotateToCamera" parent="." unique_id=1718437271 instance=ExtResource("2_7wcc1")]
 
-[node name="Sprite3D" type="Sprite3D" parent="RotateToCamera" unique_id=294487703]
-transform = Transform3D(0.5169566, 0, 0, 0, 0.75916636, 0, 0, 0, 1, 0, 1.0396684, 0)
-texture = ExtResource("2_k0kgf")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=947247283]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9296875, 0)
-shape = SubResource("CapsuleShape3D_jqrbl")
+[node name="Sprite3D" type="AnimatedSprite3D" parent="RotateToCamera" unique_id=1129838610]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.0396684, 0)
+sprite_frames = SubResource("SpriteFrames_2rxhb")
+animation = &"Agressive_Attack"
+autoplay = "Neutral_Walk"
+frame_progress = 0.17642495
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=1976122873]
 avoidance_enabled = true
@@ -45,5 +153,10 @@ metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
 
 [node name="Infection" parent="." unique_id=479001063 instance=ExtResource("5_7wcc1")]
 unique_name_in_owner = true
+progress = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1948254614]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.104150295, 1.0880336, 0)
+shape = SubResource("CapsuleShape3D_d0n16")
 
 [connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]
