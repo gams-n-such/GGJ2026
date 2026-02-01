@@ -104,6 +104,7 @@ func play_random_footstep_sound() -> void:
 
 func _on_health_value_changed(attribute: Attribute, new_value: float) -> void:
 	print("HP: " + str(new_value))
+	
 	if new_value <= 0:
 		$GUI/HUD.visible = false
 		$GUI/DeathUI.visible = true
