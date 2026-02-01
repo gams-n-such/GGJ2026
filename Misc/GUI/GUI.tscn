@@ -3,12 +3,23 @@
 [ext_resource type="Texture2D" uid="uid://b7kud7l8uuq61" path="res://Assets/Textures/Viewport/IMG_0337.PNG" id="1_ramdi"]
 [ext_resource type="Texture2D" uid="uid://bjy58rwe3r6l3" path="res://Assets/Textures/Viewport/IMG_0338.PNG" id="2_xpsij"]
 [ext_resource type="Texture2D" uid="uid://cav3567a23e63" path="res://Assets/Textures/Viewport/IMG_0339.PNG" id="3_d5m7t"]
-[ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="3_l2fi7"]
 [ext_resource type="PackedScene" uid="uid://8145hjn5o2lx" path="res://Misc/MaskSlot/mask_slot.tscn" id="3_oxd4t"]
 [ext_resource type="Texture2D" uid="uid://cf7dvrwywb2y7" path="res://Assets/Textures/Viewport/IMG_0340.PNG" id="4_aorfv"]
 [ext_resource type="Texture2D" uid="uid://c4sdmubw30w7l" path="res://Assets/Textures/Viewport/IMG_0336.PNG" id="5_c07jy"]
+[ext_resource type="Script" uid="uid://bhjsepo80paoa" path="res://Misc/GUI/capsule_count.gd" id="7_xpsij"]
 [ext_resource type="Script" uid="uid://wmprl3c7ovm1" path="res://Assets/Textures/Viewport/HealthBar.gd" id="8_j6eua"]
+[ext_resource type="Script" uid="uid://6qfa1xd8pmdv" path="res://Misc/GUI/parts_count.gd" id="8_xpsij"]
 [ext_resource type="Texture2D" uid="uid://dkt78ssjklfi1" path="res://Assets/Textures/Viewport/IMG_0342.PNG" id="9_i5ktm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ramdi"]
+font_size = 64
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xpsij"]
+font_size = 64
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ugkoc"]
 atlas = ExtResource("9_i5ktm")
@@ -21,6 +32,11 @@ region = Rect2(581, 0, 535, 572)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6v44o"]
 atlas = ExtResource("9_i5ktm")
 region = Rect2(1166, 0, 534, 572)
+
+[sub_resource type="LabelSettings" id="LabelSettings_d5m7t"]
+font_size = 26
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Control" type="Control" unique_id=76367185]
 layout_mode = 3
@@ -123,7 +139,6 @@ offset_bottom = -98.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(1.8265185, 1.8265185)
-mask = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=516033180]
 custom_minimum_size = Vector2(164.405, 30.67)
@@ -142,34 +157,33 @@ grow_vertical = 0
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=1740236178]
+[node name="CapsuleCount" type="Label" parent="VBoxContainer" unique_id=1740236178]
 custom_minimum_size = Vector2(228.04, 64)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 28
 text = "Collected capsules : 0"
-horizontal_alignment = 2
+label_settings = SubResource("LabelSettings_ramdi")
 vertical_alignment = 1
 autowrap_mode = 3
 clip_text = true
-script = ExtResource("3_l2fi7")
-_min_size = 16
+script = ExtResource("7_xpsij")
+_min_size = 15
 _current_font_size = 28
 _editor_defaults_set = true
 metadata/_custom_type_script = "uid://bttgnk3bb2a8i"
 
-[node name="Label2" type="Label" parent="VBoxContainer" unique_id=2116973368]
-modulate = Color(0, 0, 0, 1)
+[node name="PartsCount" type="Label" parent="VBoxContainer" unique_id=2116973368]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Collected parts : 0/x"
-horizontal_alignment = 2
+label_settings = SubResource("LabelSettings_xpsij")
 vertical_alignment = 1
 autowrap_mode = 3
 clip_text = true
-script = ExtResource("3_l2fi7")
-_min_size = 16
+script = ExtResource("8_xpsij")
+_min_size = 15
 _current_font_size = 28
 _editor_defaults_set = true
 metadata/_custom_type_script = "uid://bttgnk3bb2a8i"
@@ -194,3 +208,14 @@ full_icon = SubResource("AtlasTexture_ugkoc")
 partial_icon = SubResource("AtlasTexture_42jot")
 empty_icon = SubResource("AtlasTexture_6v44o")
 segments_per_icon = 20
+
+[node name="Label" type="Label" parent="HealthBar" unique_id=1489317291]
+layout_mode = 0
+offset_left = 66.0
+offset_top = 64.0
+offset_right = 274.0
+offset_bottom = 92.0
+text = "100%"
+label_settings = SubResource("LabelSettings_d5m7t")
+horizontal_alignment = 1
+vertical_alignment = 1

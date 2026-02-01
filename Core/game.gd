@@ -74,6 +74,7 @@ func win() -> void:
 
 func loose() -> void:
 	# TODO: game over screen
+	player.game_over()
 	pass
 
 #endregion

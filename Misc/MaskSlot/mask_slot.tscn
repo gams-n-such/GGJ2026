@@ -24,7 +24,6 @@ offset_bottom = -549.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vdfdj")
-mask = 0
 
 [node name="InfectionStatusGreenStroke" type="TextureRect" parent="." unique_id=776944208]
 custom_minimum_size = Vector2(78, 68)

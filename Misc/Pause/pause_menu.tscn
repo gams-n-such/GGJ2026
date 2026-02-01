@@ -75,6 +75,7 @@ grow_vertical = 2
 script = ExtResource("1_1h2e4")
 
 [node name="Panel" type="Panel" parent="." unique_id=495564796]
+visible = false
 modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_1h2e4")
 layout_mode = 1

@@ -76,7 +76,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("Crouch"):
 		$CollisionShape3D.shape.height = lerp($CollisionShape3D.shape.height, 1.38, 0.1)
 
-	$MeshInstance3D.mesh.height = $CollisionShape3D.shape.height
+#	$MeshInstance3D.mesh.height = $CollisionShape3D.shape.height
 	%HeadPosition.position.y = $CollisionShape3D.shape.height - 0.25
 
 	var input_dir := Input.get_vector("Left", "Right", "Forward", "Backward")
@@ -96,6 +96,10 @@ func _physics_process(delta: float) -> void:
 			play_random_footstep_sound()
 
 	move_and_slide()
+	
+	
+	
+	
 
 
 func landing_animation(landing_velocity):
@@ -117,6 +121,7 @@ func play_random_footstep_sound() -> void:
 
 func _on_health_value_changed(attribute: Attribute, new_value: float) -> void:
 	print("HP: " + str(new_value))
+	$UI/GUI/HealthBar.set_value(new_value)
 	if new_value <= $Health.max_value / 3:
 		$UI/DamageEffect/AnimationPlayer.play("LowHealth")
 	elif new_value < $Health.max_value:
@@ -174,18 +179,24 @@ func _on_weapon_equipped(new_equipment: Equipment) -> void:
 
 
 func _on_combat_mask_equip_requested(equipment: Equipment) -> void:
+	$UI/HUD/Hand/Control/AttackHand.visible = true
+	$UI/HUD/Hand/Control/HealHand.visible = false
 	$UI/GUI/Mask/RedMask.visible=true
 	$UI/GUI/Mask/WhiteMask.visible = false
 	$UI/GUI/Mask/BlueMask.visible = false
 
 
 func _on_tracking_mask_equip_requested(equipment: Equipment) -> void:
+	$UI/HUD/Hand/Control/AttackHand.visible = false
+	$UI/HUD/Hand/Control/HealHand.visible = true
 	$UI/GUI/Mask/RedMask.visible=false
 	$UI/GUI/Mask/WhiteMask.visible = false
 	$UI/GUI/Mask/BlueMask.visible = true
 
 
 func _on_diagnostic_mask_equip_requested(equipment: Equipment) -> void:
+	$UI/HUD/Hand/Control/AttackHand.visible = false
+	$UI/HUD/Hand/Control/HealHand.visible = false
 	$UI/GUI/Mask/RedMask.visible= false
 	$UI/GUI/Mask/WhiteMask.visible = true
 	$UI/GUI/Mask/BlueMask.visible = false
@@ -203,3 +214,7 @@ func _on_shooting_attack_interaction_started(target: Node, time_left: float) -> 
 	$UI/HUD/Hand/Control/AttackHand.visible = true
 	$UI/HUD/Hand/Control/AttackHand/AttackSwordRedsword.texture = ATTACK_GUN_REDLIGHT
 	$UI/HUD/Hand/AnimationPlayer.play("Shot")
+
+func game_over():
+	speed = 0
+	$UI/DeathUI.visible = true

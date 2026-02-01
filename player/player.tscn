@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://b8j5dvefv2fmt" path="res://player/sounds/footsteps/footstep_8.wav" id="9_e7oew"]
 [ext_resource type="AudioStream" uid="uid://48xt4llun7t8" path="res://player/sounds/footsteps/footstep_9.wav" id="10_c35mf"]
 [ext_resource type="AudioStream" uid="uid://dly32slohyd7p" path="res://player/sounds/footsteps/footstep_10.wav" id="11_65viv"]
+[ext_resource type="Texture2D" uid="uid://d2jahqierpb53" path="res://player/shiluette.png" id="12_2uvqg"]
 [ext_resource type="PackedScene" uid="uid://u6c80onqkda5" path="res://player/player_interactor.tscn" id="12_32hag"]
 [ext_resource type="Script" uid="uid://cmpefrfbpmpfh" path="res://Core/Atributes/attribute.gd" id="12_kb6p2"]
 [ext_resource type="PackedScene" uid="uid://302hr8kg3v2m" path="res://player/attack_ray.tscn" id="13_s7qer"]
@@ -30,10 +31,6 @@
 [ext_resource type="Resource" uid="uid://dtihwdcrq4iuv" path="res://Masks/Diagnostic/diagnostic_mask.tres" id="20_s7qer"]
 [ext_resource type="Resource" uid="uid://c0ewi2fd2rsgb" path="res://Masks/Combat/combat_mask.tres" id="21_g4c7l"]
 [ext_resource type="PackedScene" uid="uid://bbgqe6efr3jeg" path="res://Interaction/weapon.tscn" id="26_7pqkx"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_oul6g"]
-radius = 0.4
-height = 1.85
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_oul6g"]
 radius = 0.4
@@ -178,9 +175,12 @@ run_speed = 7.0
 walk_speed = 4
 jump_velocity = 10
 
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1664384659]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0.83983815, 0)
+texture = ExtResource("12_2uvqg")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2102996876]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925, 0)
-mesh = SubResource("CapsuleMesh_oul6g")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1063445224]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925, 0)
@@ -210,7 +210,7 @@ damage = 20.0
 unique_name_in_owner = true
 target_position = Vector3(0, 0, -7.5)
 damage = 50.0
-cooldown = 1.0
+cooldown = 0.05
 
 [node name="Heal" parent="HeadPosition/LandingAnimation/Camera3D" unique_id=1577422798 instance=ExtResource("14_g4c7l")]
 unique_name_in_owner = true
@@ -295,6 +295,7 @@ offset_right = 964.0
 offset_bottom = 722.0
 
 [node name="AttackHand" type="Control" parent="UI/HUD/Hand/Control" unique_id=537213702]
+visible = false
 anchors_preset = 0
 offset_left = 17.0
 offset_top = -43.0

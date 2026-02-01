@@ -5,7 +5,7 @@ enum mask_type {blue, red,white}
 
 @onready var icon: TextureRect = $icon
 
-@export var mask : mask_type = mask_type.white
+@export var mask : mask_type
 
 @onready var mask_hots := [$HBoxContainer/Hot/BluemaskIcon,
 $HBoxContainer/Hot2/RedmaskIcon,

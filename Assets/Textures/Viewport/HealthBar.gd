@@ -254,7 +254,7 @@ func _update_icon_colors():
 
 func set_value(value: int):
 	current_value = clamp(value, 0, max_value)
-	$Label.text = str(current_value) + "/" + str(max_value)
+	$Label.text = str(current_value) + "%"
 
 func increase_value(amount: int):
 	set_value(current_value + amount)

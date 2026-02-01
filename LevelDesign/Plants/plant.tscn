@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://6y57hvifonvu" path="res://Core/rotate_to_camera.tscn" id="1_uamvw"]
 [ext_resource type="Texture2D" uid="uid://yfogx8kralfq" path="res://LevelDesign/Plants/Assets/Plants.png" id="2_uamvw"]
 [ext_resource type="PackedScene" uid="uid://bdvvcs0gpvtmr" path="res://Infection/infection.tscn" id="4_dcim6"]
-[ext_resource type="Shader" uid="uid://d2gfk2lbwwgms" path="res://Shaders/WindSway.gdshader" id="4_uamvw"]
+[ext_resource type="Shader" path="res://Shaders/WindSway.gdshader" id="4_uamvw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p2k1p"]
 atlas = ExtResource("2_uamvw")
@@ -22,7 +22,7 @@ region = Rect2(243, 131, 969, 597)
 render_priority = 0
 shader = ExtResource("4_uamvw")
 shader_parameter/albedo_texture = ExtResource("2_uamvw")
-shader_parameter/scale = Vector3(0.5, 0.5, 0.3)
+shader_parameter/scale = Vector3(0.3, 0.3, 0.3)
 shader_parameter/wind_strength = 0.63999998942031
 shader_parameter/wind_speed = 0.90000000596048
 
@@ -64,8 +64,8 @@ _data = {
 &"RESET": SubResource("Animation_dcim6")
 }
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_wqpwy"]
-size = Vector3(17.798706, 15.266724, 19.176392)
+[sub_resource type="SphereShape3D" id="SphereShape3D_p2k1p"]
+radius = 5.198
 
 [node name="Plant" type="Node3D" unique_id=1167637988 groups=["Infectable"]]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
@@ -78,7 +78,7 @@ full_infection = SubResource("AtlasTexture_q7kuy")
 
 [node name="Sprite3D" type="Sprite3D" parent="RotateToCamera" unique_id=1377242938]
 unique_name_in_owner = true
-transform = Transform3D(0.9985111, 0.054549355, 0, -0.054549355, 0.9985111, 0, 0, 0, 1, 0, 2.6543531, 2.7196453)
+transform = Transform3D(0.9985111, 0.054549355, 0, -0.054549355, 0.9985111, 0, 0, 0, 1, -1.2404099, -3.1381786, 1.8850315)
 material_override = SubResource("ShaderMaterial_7khfl")
 texture = ExtResource("2_uamvw")
 hframes = 3
@@ -94,12 +94,13 @@ autoplay = &"Plant"
 
 [node name="Trigger" type="Area3D" parent="." unique_id=1460841489]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
 collision_layer = 2
 collision_mask = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger" unique_id=40700877]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1397094, 7.133362, -0.5265501)
-shape = SubResource("BoxShape3D_wqpwy")
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger" unique_id=1059756722]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.155385, 0)
+shape = SubResource("SphereShape3D_p2k1p")
 
 [node name="DamageTimer" type="Timer" parent="." unique_id=498980957]
 unique_name_in_owner = true
