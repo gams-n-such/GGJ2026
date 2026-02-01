@@ -1,3 +1,4 @@
+class_name Mask
 extends Equipment
 
 @export var activate_mask_index : MaskSlot.mask_type

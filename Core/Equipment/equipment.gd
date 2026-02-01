@@ -9,6 +9,9 @@ signal equip_requested(equipment : Equipment)
 var active := false
 var transitioning := false
 
+func can_be_used() -> bool:
+	return active and not transitioning
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed(equip_input_action):
 		equip_requested.emit(self)

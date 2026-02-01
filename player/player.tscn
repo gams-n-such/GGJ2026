@@ -190,20 +190,24 @@ theme_override_font_sizes/font_size = 58
 [node name="PauseMenu" parent="UI" unique_id=1869559949 instance=ExtResource("15_wodsf")]
 
 [node name="EquipmentManager" type="Node" parent="." unique_id=467696698]
+unique_name_in_owner = true
 script = ExtResource("17_tqiix")
 metadata/_custom_type_script = "uid://8iq1i41swaai"
 
 [node name="TrackingMask" parent="EquipmentManager" unique_id=1789686496 instance=ExtResource("18_e7oew")]
-activate_mask_index = 2
+unique_name_in_owner = true
+activate_mask_index = 0
 equip_input_action = &"Mask1"
 resource = ExtResource("19_bjvpn")
 
 [node name="DiagnosticMask" parent="EquipmentManager" unique_id=1053106305 instance=ExtResource("18_e7oew")]
-activate_mask_index = 0
+unique_name_in_owner = true
+activate_mask_index = 2
 equip_input_action = &"Mask2"
 resource = ExtResource("20_s7qer")
 
 [node name="CombatMask" parent="EquipmentManager" unique_id=158867615 instance=ExtResource("18_e7oew")]
+unique_name_in_owner = true
 activate_mask_index = 1
 equip_input_action = &"Mask3"
 resource = ExtResource("21_g4c7l")

@@ -18,10 +18,39 @@ var footstep_distance = 2.1
 var is_mouse_visible : bool = false 
 
 @onready var interactor : PlayerInteractorBase = %Interactor
+@onready var melee_attack : PlayerInteractorBase = %MeleeAttack
+@onready var shooting_attack : PlayerInteractorBase = %ShootingAttack
+@onready var healing_ray : PlayerInteractorBase = %HealingRay
+var using_melee : bool = false
+var active_weapon : PlayerInteractorBase:
+	get:
+		if active_mask == combat_mask:
+			if using_melee:
+				return melee_attack
+			else:
+				return shooting_attack
+		elif active_mask == diagnostic_mask:
+			return healing_ray
+		else:
+			return null
+
 @onready var camera : Camera3D = %Camera3D
+
+@onready var equipment_manager: EquipmentManager = %EquipmentManager
+
+@onready var tracking_mask: Mask = %TrackingMask
+@onready var diagnostic_mask: Mask = %DiagnosticMask
+@onready var combat_mask: Mask = %CombatMask
+var active_mask : Mask:
+	get:
+		if equipment_manager.current_equipment:
+			if equipment_manager.current_equipment.can_be_used():
+				return equipment_manager.current_equipment as Mask
+		return null
 
 func _ready() -> void:
 	Game.player = self
+	camera.cull_mask = Game.default_camera_layers
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
@@ -32,6 +61,10 @@ func _input(event: InputEvent) -> void:
 		%Camera3D.rotation_degrees.x = clamp( %Camera3D.rotation_degrees.x, -90, 90 )
 	elif event.is_action_pressed("Interact"):
 		interactor.begin_interaction()
+	elif event.is_action_pressed("Attack"):
+		pass
+	elif event.is_action_pressed("SwitchWeapon"):
+		pass
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -56,10 +89,11 @@ func _physics_process(delta: float) -> void:
 		speed = run_speed
 		if Input.is_action_pressed("Crouch"):
 			speed = crouch_speed
-		elif Input.is_action_pressed("Walk"):
-			speed = walk_speed
-		elif Input.is_action_just_pressed("Dash"):
-			speed = run_speed
+		else:
+			if Input.is_action_pressed("Dash"):
+				speed = run_speed
+			elif Input.is_action_pressed("Walk"):
+				speed = walk_speed
 
 	if Input.is_action_pressed("Crouch"):
 		$CollisionShape3D.shape.height = lerp($CollisionShape3D.shape.height, 1.38, 0.1)

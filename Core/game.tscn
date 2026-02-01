@@ -6,6 +6,6 @@
 
 [node name="Game" type="Node" unique_id=736238743]
 script = ExtResource("1_t3eon")
-default_camera_layers = 1
+default_camera_layers = 17
 menu_scene = ExtResource("2_htkch")
 gameplay_scene = ExtResource("3_52drc")
