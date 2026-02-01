@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://doh3hwm7cy1qc" path="res://Interaction/interaction_trigger.gd" id="1_wtup5"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_wtup5"]
+resource_local_to_scene = true
 
 [node name="InteractionTrigger" type="Area3D" unique_id=1303982047 groups=["Interactable"]]
 collision_layer = 32
