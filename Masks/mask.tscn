@@ -3,5 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://c3l44ty3jldoy" path="res://Core/Equipment/equipment.tscn" id="1_hyvh3"]
 [ext_resource type="Script" uid="uid://d2xi2li0cgse0" path="res://Masks/mask.gd" id="2_3wbgp"]
 
-[node name="Equipment" unique_id=1789686496 instance=ExtResource("1_hyvh3")]
+[node name="Mask" unique_id=1789686496 instance=ExtResource("1_hyvh3")]
 script = ExtResource("2_3wbgp")
+visible_layers = 1

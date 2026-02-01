@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_aqo0y")
+visible_layers = 17
 metadata/_custom_type_script = "uid://w42l5fr1my4c"

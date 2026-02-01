@@ -1,19 +1,33 @@
 extends Equipment
 
+var target_camera : Camera3D:
+	get:
+		return Game.player.camera
+
 var mask_resource : MaskResource:
 	get:
 		return resource as MaskResource
 
+const MASK_HUD = preload("uid://cgo0lnpaha2ki")
+
 func equip() -> void:
 	transitioning = true
-	await get_tree().create_timer(1.0).timeout
+	var hud := MASK_HUD.instantiate() as MaskHud
+	Game.player.add_child(hud)
+	await hud.play_equip_transition(false)
+	hud.queue_free()
 	transitioning = false
 	active = true
+	target_camera.cull_mask = mask_resource.visible_layers
 	print("Equipped " + str(self))
 
 func unequip() -> void:
 	transitioning = true
-	await get_tree().create_timer(1.0).timeout
+	var hud := MASK_HUD.instantiate() as MaskHud
+	Game.player.add_child(hud)
+	await hud.play_equip_transition(true)
+	hud.queue_free()
 	transitioning = false
 	active = false
+	target_camera.cull_mask = Game.default_camera_layers
 	print("Unequipped " + str(self))
