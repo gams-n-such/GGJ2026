@@ -15,5 +15,8 @@ unique_name_in_owner = true
 [node name="HealTimer" type="Timer" parent="." unique_id=808473988]
 unique_name_in_owner = true
 
+[node name="DiagnosticTimer" type="Timer" parent="." unique_id=42473969]
+unique_name_in_owner = true
+
 [connection signal="timeout" from="IncubationTimer" to="." method="_on_incubation_timer_timeout"]
 [connection signal="timeout" from="HealTimer" to="." method="_on_heal_timer_timeout"]
