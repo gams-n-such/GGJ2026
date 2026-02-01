@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bhc0xkce8lexj"]
+
+[ext_resource type="PackedScene" uid="uid://bgb3f6yf4osbj" path="res://LevelDesign/Grass/Assets/grass.fbx" id="1_t7mxo"]
+
+[node name="grass" unique_id=934832417 instance=ExtResource("1_t7mxo")]
+transform = Transform3D(2.5, 0, 0, 0, 1.089, 0, 0, 0, 1.725, 0, 0, 0)
+
+[node name="Plane_001" parent="." index="0" unique_id=2010819623]
+transform = Transform3D(-1124.5599, 0, 0, 0, 0.0003173947, -1123.8148, 0, 1331.2498, 0.00026793836, -0.02874704, 1.9517845, 0.03264096)

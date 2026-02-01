@@ -35,12 +35,13 @@ Game="*uid://cs34d64dgwg7p"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 mouse_cursor/custom_image="uid://bboss2xtpilag"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg", "res://addons/font_auto_size_labels/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg", "res://addons/font_auto_size_labels/plugin.cfg", "res://addons/scene_object_brush/plugin.cfg")
 
 [file_customization]
 
