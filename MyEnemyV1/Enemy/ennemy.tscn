@@ -1,18 +1,23 @@
 [gd_scene format=3 uid="uid://gcaaanlvm7ue"]
 
 [ext_resource type="Script" uid="uid://dc7q2iu6c07r6" path="res://MyEnemyV1/Enemy/Ennemy.gd" id="1_r526v"]
+[ext_resource type="PackedScene" uid="uid://6y57hvifonvu" path="res://Core/rotate_to_camera.tscn" id="2_7wcc1"]
 [ext_resource type="Texture2D" uid="uid://dlphs4uwg1ed8" path="res://MyEnemyV1/Enemy/ttt.png" id="2_k0kgf"]
+[ext_resource type="Script" uid="uid://cmpefrfbpmpfh" path="res://Core/Atributes/attribute.gd" id="3_euw16"]
+[ext_resource type="Script" uid="uid://dun8pool65l3u" path="res://Infection/infection.gd" id="4_7wcc1"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jqrbl"]
 height = 1.8085938
 
-[node name="Ennemy" type="CharacterBody3D" unique_id=609859506]
+[node name="Ennemy" type="CharacterBody3D" unique_id=609859506 groups=["Damageable", "Enemies", "Infectable"]]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource("1_r526v")
 detect_distance = 10
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=294487703]
+[node name="RotateToCamera" parent="." unique_id=1718437271 instance=ExtResource("2_7wcc1")]
+
+[node name="Sprite3D" type="Sprite3D" parent="RotateToCamera" unique_id=294487703]
 transform = Transform3D(0.5169566, 0, 0, 0, 0.75916636, 0, 0, 0, 1, 0, 1.0396684, 0)
 texture = ExtResource("2_k0kgf")
 
@@ -30,3 +35,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0754476, 0.043352842)
 target_position = Vector3(0, 0.01, -1.845)
 collision_mask = 16
 collide_with_areas = true
+
+[node name="Health" type="Node" parent="." unique_id=796132821]
+unique_name_in_owner = true
+script = ExtResource("3_euw16")
+_starting_value = 100.0
+max_value = 100.0
+metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
+
+[node name="Infection" type="Node" parent="." unique_id=2069495190]
+unique_name_in_owner = true
+script = ExtResource("4_7wcc1")
+metadata/_custom_type_script = "uid://dun8pool65l3u"
