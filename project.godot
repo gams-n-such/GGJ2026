@@ -35,7 +35,7 @@ window/stretch/mode="canvas_items"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg")
+enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg", "res://addons/explore-editor-theme/plugin.cfg", "res://addons/font_auto_size_labels/plugin.cfg")
 
 [file_customization]
 
@@ -56,6 +56,7 @@ Plants=""
 Damageable="You can expect these nodes to have \"Health\" Attribute node attached directly to them"
 Collectible=""
 Infectable="Enemies and plants thet can be infected or healed"
+MaskSlot=""
 Interactable="Interaction triggers"
 ShipParts="One of the goals. Must also be Collectible"
 Vials="One of the goals. Must also be Collectible"

@@ -16,6 +16,7 @@
 [ext_resource type="Shader" uid="uid://w77bset6y6lr" path="res://Shaders/Blur.gdshader" id="13_wodsf"]
 [ext_resource type="PackedScene" uid="uid://bipkxexwec852" path="res://Misc/Button/button.tscn" id="14_32hag"]
 [ext_resource type="PackedScene" uid="uid://b0mf3l56dvooj" path="res://Misc/Pause/pause_menu.tscn" id="15_wodsf"]
+[ext_resource type="PackedScene" uid="uid://duusv3d7l63yw" path="res://Misc/GUI/GUI.tscn" id="17_s7qer"]
 [ext_resource type="Script" uid="uid://8iq1i41swaai" path="res://Core/Equipment/equipment_manager.gd" id="17_tqiix"]
 [ext_resource type="PackedScene" uid="uid://c7dtspqdgdomo" path="res://Masks/mask.tscn" id="18_e7oew"]
 [ext_resource type="Resource" uid="uid://dv22k7qfivwud" path="res://Masks/Tracking/tracking_mask.tres" id="19_bjvpn"]
@@ -82,9 +83,9 @@ has_max_value = true
 max_value = 100.0
 metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
 
-[node name="GUI" type="CanvasLayer" parent="." unique_id=2118645892]
+[node name="UI" type="CanvasLayer" parent="." unique_id=2118645892]
 
-[node name="HUD" type="Control" parent="GUI" unique_id=1836050831]
+[node name="HUD" type="Control" parent="UI" unique_id=1836050831]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -92,7 +93,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Crosshair" type="Control" parent="GUI/HUD" unique_id=442683083]
+[node name="Crosshair" type="Control" parent="UI/HUD" unique_id=442683083]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -100,7 +101,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="GUI/HUD/Crosshair" unique_id=1996728416]
+[node name="ColorRect" type="ColorRect" parent="UI/HUD/Crosshair" unique_id=1996728416]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -115,7 +116,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="GUI/HUD/Crosshair" unique_id=1853978242]
+[node name="ColorRect2" type="ColorRect" parent="UI/HUD/Crosshair" unique_id=1853978242]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -129,7 +130,9 @@ offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="DeathUI" type="Control" parent="GUI" unique_id=1402694153]
+[node name="GUI" parent="UI" unique_id=76367185 instance=ExtResource("17_s7qer")]
+
+[node name="DeathUI" type="Control" parent="UI" unique_id=1402694153]
 visible = false
 layout_mode = 3
 anchors_preset = 15
@@ -138,7 +141,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Panel" type="Panel" parent="GUI/DeathUI" unique_id=1935610368]
+[node name="Panel" type="Panel" parent="UI/DeathUI" unique_id=1935610368]
 material = SubResource("ShaderMaterial_tqiix")
 layout_mode = 1
 anchors_preset = 15
@@ -147,7 +150,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GUI/DeathUI" unique_id=840732027]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/DeathUI" unique_id=840732027]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -160,18 +163,18 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 94
 
-[node name="Label" type="Label" parent="GUI/DeathUI/VBoxContainer" unique_id=1899422359]
+[node name="Label" type="Label" parent="UI/DeathUI/VBoxContainer" unique_id=1899422359]
 layout_mode = 2
 text = "GAME OVER"
 label_settings = SubResource("LabelSettings_e7oew")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" parent="GUI/DeathUI/VBoxContainer" unique_id=369440333 instance=ExtResource("14_32hag")]
+[node name="Button" parent="UI/DeathUI/VBoxContainer" unique_id=369440333 instance=ExtResource("14_32hag")]
 layout_mode = 2
 theme_override_font_sizes/font_size = 58
 
-[node name="PauseMenu" parent="GUI" unique_id=1869559949 instance=ExtResource("15_wodsf")]
+[node name="PauseMenu" parent="UI" unique_id=1869559949 instance=ExtResource("15_wodsf")]
 
 [node name="EquipmentManager" type="Node" parent="." unique_id=467696698]
 script = ExtResource("17_tqiix")
