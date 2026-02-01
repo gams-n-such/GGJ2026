@@ -19,10 +19,14 @@
 [ext_resource type="PackedScene" uid="uid://ctg7b5wmmvv2x" path="res://player/healing_ray.tscn" id="14_g4c7l"]
 [ext_resource type="PackedScene" uid="uid://b0mf3l56dvooj" path="res://Misc/Pause/pause_menu.tscn" id="15_wodsf"]
 [ext_resource type="PackedScene" uid="uid://d3wcfc0ylu5pt" path="res://Misc/DamageEffect/DamageEffect.tscn" id="16_knn7v"]
+[ext_resource type="Texture2D" uid="uid://gs36egf83et5" path="res://Misc/Hand/attack_sword_redsword.png" id="17_b8hi5"]
 [ext_resource type="PackedScene" uid="uid://duusv3d7l63yw" path="res://Misc/GUI/GUI.tscn" id="17_s7qer"]
 [ext_resource type="Script" uid="uid://8iq1i41swaai" path="res://Core/Equipment/equipment_manager.gd" id="17_tqiix"]
+[ext_resource type="Texture2D" uid="uid://d2ywd6qrxwhmg" path="res://Misc/Hand/attack_gun_black.png" id="17_uw77l"]
 [ext_resource type="PackedScene" uid="uid://c7dtspqdgdomo" path="res://Masks/mask.tscn" id="18_e7oew"]
+[ext_resource type="Texture2D" uid="uid://bay4ujlt7qxh4" path="res://Misc/Hand/heal_gun_greenlight.png" id="19_2uvqg"]
 [ext_resource type="Resource" uid="uid://dv22k7qfivwud" path="res://Masks/Tracking/tracking_mask.tres" id="19_bjvpn"]
+[ext_resource type="Texture2D" uid="uid://bo4u2pj6fjg8w" path="res://Misc/Hand/heal_gun_green.png" id="20_1s1yo"]
 [ext_resource type="Resource" uid="uid://dtihwdcrq4iuv" path="res://Masks/Diagnostic/diagnostic_mask.tres" id="20_s7qer"]
 [ext_resource type="Resource" uid="uid://c0ewi2fd2rsgb" path="res://Masks/Combat/combat_mask.tres" id="21_g4c7l"]
 [ext_resource type="PackedScene" uid="uid://bbgqe6efr3jeg" path="res://Interaction/weapon.tscn" id="26_7pqkx"]
@@ -35,6 +39,127 @@ height = 1.85
 radius = 0.4
 height = 1.85
 
+[sub_resource type="Animation" id="Animation_b8hi5"]
+resource_name = "Hit"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1.131432, -0.046666667, 0.073554255, 0.04, -0.0630465, -0.8196045, -0.086666666, 0, 0.080000006, 0, 0, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.28, 0.52, 1)
+}
+
+[sub_resource type="Animation" id="Animation_2uvqg"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(924, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(682, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_1s1yo"]
+resource_name = "Shot"
+length = 1.4
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0),
+"points": PackedFloat32Array(924, 0, 0, 0.23333333, 0, 923.99994, -0.13333334, 0, 0.099999994, 0, 924, -0.23333333, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.26666668, 0.6666667)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0),
+"points": PackedFloat32Array(682, 0, 0, 0.23333333, 0, 717, -0.13333334, 0, 0.099999994, 0, 682, -0.23333333, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.26666668, 0.6666667)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Control:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0.22267489, -0.13333334, 0, 0.099999994, 0, 0, -0.23333333, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.26666668, 0.6666667)
+}
+
+[sub_resource type="Animation" id="Animation_5ejfk"]
+resource_name = "Walk"
+loop_mode = 1
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 2, 2),
+"points": PackedFloat32Array(924, -0.25, 0, 0.25, 0, 925, -0.068333335, 0, 0.098333344, 0, 924, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.41, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 2),
+"points": PackedFloat32Array(682, -0.25, 0, 0.25, 0, 694, -0.068333335, 0, 0.098333344, 0, 682, -0.16666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.53333336, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1s1yo"]
+_data = {
+&"Hit": SubResource("Animation_b8hi5"),
+&"RESET": SubResource("Animation_2uvqg"),
+&"Shot": SubResource("Animation_1s1yo"),
+&"Walk": SubResource("Animation_5ejfk")
+}
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tqiix"]
 shader = ExtResource("13_wodsf")
 shader_parameter/blur_amount = 1.5690001695275
@@ -43,71 +168,6 @@ shader_parameter/color_over = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_e7oew"]
 font_size = 67
-
-[sub_resource type="Animation" id="Animation_knn7v"]
-resource_name = "Damage"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/vignette_intensity")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.425, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:material:shader_parameter/vignette_opacity")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.254000012065, 0.254000012065]
-}
-
-[sub_resource type="Animation" id="Animation_rptt4"]
-resource_name = "LowerHealth"
-
-[sub_resource type="Animation" id="Animation_7pqkx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/vignette_intensity")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:material:shader_parameter/vignette_opacity")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.254000012065]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_uw77l"]
-_data = {
-&"Damage": SubResource("Animation_knn7v"),
-&"LowerHealth": SubResource("Animation_rptt4"),
-&"RESET": SubResource("Animation_7pqkx")
-}
 
 [node name="Player" type="CharacterBody3D" unique_id=1158226171 groups=["Damageable", "Player"]]
 collision_layer = 16
@@ -165,7 +225,7 @@ metadata/_custom_type_script = "uid://cmpefrfbpmpfh"
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=2118645892]
 
-[node name="ColorRect" parent="UI" unique_id=749762147 instance=ExtResource("16_knn7v")]
+[node name="DamageEffect" parent="UI" unique_id=749762147 instance=ExtResource("16_knn7v")]
 
 [node name="HUD" type="Control" parent="UI" unique_id=1836050831]
 layout_mode = 3
@@ -211,6 +271,60 @@ offset_right = 3.0
 offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Hand" type="Control" parent="UI/HUD" unique_id=1102024457]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="UI/HUD/Hand" unique_id=490742720]
+anchors_preset = 0
+offset_left = 924.0
+offset_top = 682.0
+offset_right = 964.0
+offset_bottom = 722.0
+
+[node name="AttackHand" type="Control" parent="UI/HUD/Hand/Control" unique_id=537213702]
+anchors_preset = 0
+offset_left = 17.0
+offset_top = -43.0
+offset_right = 57.0
+offset_bottom = -3.0
+scale = Vector2(0.78929436, 0.78929436)
+
+[node name="AttackSwordRedsword" type="Sprite2D" parent="UI/HUD/Hand/Control/AttackHand" unique_id=1439110134]
+position = Vector2(-98.342834, -139.7121)
+scale = Vector2(0.3499193, 0.3499193)
+texture = ExtResource("17_b8hi5")
+
+[node name="AttackGunBlack" type="Sprite2D" parent="UI/HUD/Hand/Control/AttackHand" unique_id=1839426777]
+position = Vector2(-98.34302, -139.71222)
+scale = Vector2(0.35006586, 0.35006586)
+texture = ExtResource("17_uw77l")
+
+[node name="HealHand" type="Control" parent="UI/HUD/Hand/Control" unique_id=755895737]
+visible = false
+anchors_preset = 0
+offset_left = 940.0
+offset_top = 677.0
+offset_right = 980.0
+offset_bottom = 717.0
+
+[node name="AttackSwordRedsword" type="Sprite2D" parent="UI/HUD/Hand/Control/HealHand" unique_id=665303962]
+position = Vector2(-98.342834, -139.7121)
+scale = Vector2(0.3499193, 0.3499193)
+texture = ExtResource("19_2uvqg")
+
+[node name="AttackGunBlack" type="Sprite2D" parent="UI/HUD/Hand/Control/HealHand" unique_id=1712882916]
+position = Vector2(-98.34302, -139.71222)
+scale = Vector2(0.35006586, 0.35006586)
+texture = ExtResource("20_1s1yo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI/HUD/Hand" unique_id=1886802805]
+libraries/ = SubResource("AnimationLibrary_1s1yo")
 
 [node name="GUI" parent="UI" unique_id=76367185 instance=ExtResource("17_s7qer")]
 
@@ -258,9 +372,6 @@ theme_override_font_sizes/font_size = 58
 
 [node name="PauseMenu" parent="UI" unique_id=1869559949 instance=ExtResource("15_wodsf")]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI" unique_id=867306733]
-libraries/ = SubResource("AnimationLibrary_uw77l")
-
 [node name="MasksManager" type="Node" parent="." unique_id=467696698]
 unique_name_in_owner = true
 script = ExtResource("17_tqiix")
@@ -276,14 +387,14 @@ resource = ExtResource("19_bjvpn")
 unique_name_in_owner = true
 activate_mask_index = 2
 default_weapon = NodePath("../../WeaponsManager/HealingRay")
-equip_input_action = &"Mask2"
+equip_input_action = &"Mask3"
 resource = ExtResource("20_s7qer")
 
 [node name="CombatMask" parent="MasksManager" unique_id=158867615 node_paths=PackedStringArray("default_weapon") instance=ExtResource("18_e7oew")]
 unique_name_in_owner = true
 activate_mask_index = 1
 default_weapon = NodePath("../../WeaponsManager/Gun")
-equip_input_action = &"Mask3"
+equip_input_action = &"Mask2"
 resource = ExtResource("21_g4c7l")
 
 [node name="WeaponsManager" type="Node" parent="." unique_id=1640595648]
@@ -300,6 +411,11 @@ unique_name_in_owner = true
 [node name="HealingRay" parent="WeaponsManager" unique_id=1820506878 instance=ExtResource("26_7pqkx")]
 unique_name_in_owner = true
 
+[connection signal="interaction_started" from="HeadPosition/LandingAnimation/Camera3D/MeleeAttack" to="." method="_on_melee_attack_interaction_started"]
+[connection signal="interaction_started" from="HeadPosition/LandingAnimation/Camera3D/ShootingAttack" to="." method="_on_shooting_attack_interaction_started"]
 [connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]
 [connection signal="equipped" from="MasksManager" to="." method="_on_mask_changed"]
+[connection signal="equip_requested" from="MasksManager/TrackingMask" to="." method="_on_tracking_mask_equip_requested"]
+[connection signal="equip_requested" from="MasksManager/DiagnosticMask" to="." method="_on_diagnostic_mask_equip_requested"]
+[connection signal="equip_requested" from="MasksManager/CombatMask" to="." method="_on_combat_mask_equip_requested"]
 [connection signal="equipped" from="WeaponsManager" to="." method="_on_weapon_equipped"]
