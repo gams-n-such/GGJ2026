@@ -24,7 +24,6 @@
 [ext_resource type="Resource" uid="uid://dv22k7qfivwud" path="res://Masks/Tracking/tracking_mask.tres" id="19_bjvpn"]
 [ext_resource type="Resource" uid="uid://dtihwdcrq4iuv" path="res://Masks/Diagnostic/diagnostic_mask.tres" id="20_s7qer"]
 [ext_resource type="Resource" uid="uid://c0ewi2fd2rsgb" path="res://Masks/Combat/combat_mask.tres" id="21_g4c7l"]
-[ext_resource type="Resource" uid="uid://qg3c4vcawkyl" path="res://Masks/Healing/healing_mask.tres" id="22_knn7v"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_oul6g"]
 radius = 0.4
@@ -195,21 +194,18 @@ script = ExtResource("17_tqiix")
 metadata/_custom_type_script = "uid://8iq1i41swaai"
 
 [node name="TrackingMask" parent="EquipmentManager" unique_id=1789686496 instance=ExtResource("18_e7oew")]
+activate_mask_index = 2
 equip_input_action = &"Mask1"
 resource = ExtResource("19_bjvpn")
 
 [node name="DiagnosticMask" parent="EquipmentManager" unique_id=1053106305 instance=ExtResource("18_e7oew")]
+activate_mask_index = 0
 equip_input_action = &"Mask2"
-activate_mask_index = 1
 resource = ExtResource("20_s7qer")
 
 [node name="CombatMask" parent="EquipmentManager" unique_id=158867615 instance=ExtResource("18_e7oew")]
+activate_mask_index = 1
 equip_input_action = &"Mask3"
-activate_mask_index = 2
 resource = ExtResource("21_g4c7l")
-
-[node name="HealingMask" parent="EquipmentManager" unique_id=695713725 instance=ExtResource("18_e7oew")]
-equip_input_action = &"Mask4"
-resource = ExtResource("22_knn7v")
 
 [connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]
