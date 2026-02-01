@@ -140,9 +140,11 @@ target_position = Vector3(0, 0, -3)
 
 [node name="MeleeAttack" parent="HeadPosition/LandingAnimation/Camera3D" unique_id=1643040456 instance=ExtResource("13_s7qer")]
 unique_name_in_owner = true
+damage = 20.0
 
 [node name="ShootingAttack" parent="HeadPosition/LandingAnimation/Camera3D" unique_id=916945525 instance=ExtResource("13_s7qer")]
 unique_name_in_owner = true
+damage = 50.0
 cooldown = 1.0
 
 [node name="Heal" parent="HeadPosition/LandingAnimation/Camera3D" unique_id=1577422798 instance=ExtResource("14_g4c7l")]
@@ -291,14 +293,17 @@ unique_name_in_owner = true
 script = ExtResource("17_tqiix")
 metadata/_custom_type_script = "uid://8iq1i41swaai"
 
-[node name="Sword" parent="WeaponsManager" unique_id=747473693 instance=ExtResource("26_7pqkx")]
+[node name="Sword" parent="WeaponsManager" unique_id=747473693 node_paths=PackedStringArray("interactor") instance=ExtResource("26_7pqkx")]
 unique_name_in_owner = true
+interactor = NodePath("../../HeadPosition/LandingAnimation/Camera3D/MeleeAttack")
 
-[node name="Gun" parent="WeaponsManager" unique_id=2042396883 instance=ExtResource("26_7pqkx")]
+[node name="Gun" parent="WeaponsManager" unique_id=2042396883 node_paths=PackedStringArray("interactor") instance=ExtResource("26_7pqkx")]
 unique_name_in_owner = true
+interactor = NodePath("../../HeadPosition/LandingAnimation/Camera3D/ShootingAttack")
 
-[node name="HealingRay" parent="WeaponsManager" unique_id=1820506878 instance=ExtResource("26_7pqkx")]
+[node name="HealingRay" parent="WeaponsManager" unique_id=1820506878 node_paths=PackedStringArray("interactor") instance=ExtResource("26_7pqkx")]
 unique_name_in_owner = true
+interactor = NodePath("../../HeadPosition/LandingAnimation/Camera3D/Heal")
 
 [connection signal="value_changed" from="Health" to="." method="_on_health_value_changed"]
 [connection signal="equipped" from="MasksManager" to="." method="_on_mask_changed"]
