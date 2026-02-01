@@ -12,6 +12,9 @@ shader_parameter/color_over = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i1arw"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_je2c5"]
+font_size = 58
+
 [sub_resource type="Animation" id="Animation_u6emx"]
 length = 0.001
 tracks/0/type = "value"
@@ -72,7 +75,6 @@ grow_vertical = 2
 script = ExtResource("1_1h2e4")
 
 [node name="Panel" type="Panel" parent="." unique_id=495564796]
-visible = false
 modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_1h2e4")
 layout_mode = 1
@@ -115,14 +117,17 @@ theme_override_constants/separation = 21
 
 [node name="Resume" parent="Panel/Panel2/VBoxContainer" unique_id=2100052696 instance=ExtResource("3_u6emx")]
 layout_mode = 2
+theme_override_font_sizes/font_size = 58
 text = "Resume"
 
 [node name="Options" parent="Panel/Panel2/VBoxContainer" unique_id=1536121867 instance=ExtResource("3_u6emx")]
 layout_mode = 2
+theme_override_font_sizes/font_size = 58
 text = "Options"
 
 [node name="Exit" parent="Panel/Panel2/VBoxContainer" unique_id=1957266330 instance=ExtResource("3_u6emx")]
 layout_mode = 2
+theme_override_font_sizes/font_size = 58
 text = "Main Menu"
 
 [node name="Label" type="Label" parent="Panel" unique_id=663821075]
@@ -130,36 +135,18 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -92.0
+offset_left = -382.0
 offset_top = 19.111809
-offset_right = 9.1762085
-offset_bottom = 44.46383
+offset_right = 30.66217
+offset_bottom = 80.11181
 grow_horizontal = 2
 scale = Vector2(1.88893, 1.88893)
 text = "Game Paused"
+label_settings = SubResource("LabelSettings_je2c5")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_trim_flags = 128
 justification_flags = 34
-
-[node name="LinkButton" type="LinkButton" parent="Panel" unique_id=599084520]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -64.0
-offset_top = -21.0
-offset_right = -11.0
-offset_bottom = -9.0
-grow_horizontal = 0
-grow_vertical = 0
-theme_override_font_sizes/font_size = 11
-text = "Report a bug"
-uri = "https://docs.google.com/forms/d/e/1FAIpQLSet0XvkBd1-Ay8jgNT1lBt_jbAg7Si-_xMukYRDRgzBInfM-g/viewform?usp=dialog"
-text_direction = 2
-structured_text_bidi_override = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1216739078]
 libraries/ = SubResource("AnimationLibrary_u6emx")

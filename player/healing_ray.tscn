@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ctg7b5wmmvv2x"]
+
+[ext_resource type="PackedScene" uid="uid://u6c80onqkda5" path="res://player/player_interactor.tscn" id="1_kl526"]
+[ext_resource type="Script" uid="uid://bqnojlncfyuw" path="res://player/healing_ray.gd" id="2_ngk4r"]
+
+[node name="HealingRay" unique_id=553457367 instance=ExtResource("1_kl526")]
+script = ExtResource("2_ngk4r")

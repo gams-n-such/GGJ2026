@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://c3l44ty3jldoy"]
+
+[ext_resource type="Script" uid="uid://b5jqa5gwmier1" path="res://Core/Equipment/equipment.gd" id="1_f5c77"]
+
+[node name="Equipment" type="Node" unique_id=1789686496]
+script = ExtResource("1_f5c77")
+metadata/_custom_type_script = "uid://d2l2lyeaajwsr"

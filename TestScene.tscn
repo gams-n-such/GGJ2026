@@ -44,31 +44,25 @@ directional_shadow_pancake_size = 17.2
 environment = SubResource("Environment_wicfy")
 
 [node name="Player" parent="." unique_id=1206673027 instance=ExtResource("1_mncer")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27139473, 0.6646067, 0.107617736)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.27139473, 0.4279555, 0.107617736)
 
 [node name="Ennemy" parent="." unique_id=609859506 instance=ExtResource("2_cguwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.866001, 1.2310052, 19.083164)
-detect_distance = 10
 
 [node name="Ennemy2" parent="." unique_id=1138509945 instance=ExtResource("2_cguwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.311939, 1.2310052, 21.026579)
-detect_distance = 10
 
 [node name="Ennemy3" parent="." unique_id=362015941 instance=ExtResource("2_cguwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.31194, 1.2310052, 22.026579)
-detect_distance = 10
 
 [node name="Ennemy4" parent="." unique_id=2144014951 instance=ExtResource("2_cguwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.31194, 1.2310052, 21.026579)
-detect_distance = 10
 
 [node name="Ennemy5" parent="." unique_id=300407392 instance=ExtResource("2_cguwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.30167, 1.2310052, -28.268148)
-detect_distance = 10
 
 [node name="Ennemy6" parent="." unique_id=813610123 instance=ExtResource("2_cguwc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.228773, 1.2310052, -23.383656)
-detect_distance = 10
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=188219772]
 navigation_mesh = SubResource("NavigationMesh_cguwc")

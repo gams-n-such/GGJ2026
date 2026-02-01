@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cgo0lnpaha2ki"]
+
+[ext_resource type="Script" uid="uid://dffeopjvoynlt" path="res://Masks/mask_hud.gd" id="1_ms8mk"]
+
+[sub_resource type="Animation" id="Animation_4kow8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cbtdy"]
+resource_name = "equip"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bpjyv"]
+_data = {
+&"RESET": SubResource("Animation_4kow8"),
+&"equip": SubResource("Animation_cbtdy")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1753616461]
+script = ExtResource("1_ms8mk")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1474234172]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_bpjyv")
+
+[node name="Control" type="Control" parent="." unique_id=144045212]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1512318940]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)

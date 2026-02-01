@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://8145hjn5o2lx"]
+
+[ext_resource type="Script" uid="uid://cpj4cbuto7jhr" path="res://Misc/MaskSlot/mask_slot.gd" id="1_vdfdj"]
+[ext_resource type="Texture2D" uid="uid://el616qa2q0jp" path="res://Assets/Textures/Icons/infection_status_green_stroke.png" id="2_0urb4"]
+[ext_resource type="Texture2D" uid="uid://b7u0wkfwffgjf" path="res://Assets/Textures/Icons/infection_status_red.png" id="3_boi7p"]
+[ext_resource type="Texture2D" uid="uid://bj6yri1h1piy1" path="res://Assets/Textures/Icons/infection_status_green.png" id="4_u4eyp"]
+[ext_resource type="Texture2D" uid="uid://b68oudia3xs6v" path="res://Assets/Textures/Icons/infection_status_redline.png" id="5_aj6u8"]
+[ext_resource type="Texture2D" uid="uid://ckmr0ficejgp8" path="res://Assets/Textures/Icons/inactive_mask_icon.png" id="6_f8ivo"]
+[ext_resource type="Texture2D" uid="uid://v31mo2oknr40" path="res://Assets/Textures/Icons/bluemask_icon.png" id="7_boi7p"]
+[ext_resource type="Texture2D" uid="uid://bffelnrabci5b" path="res://Assets/Textures/Icons/redmask_icon.png" id="8_u4eyp"]
+[ext_resource type="Texture2D" uid="uid://beaterqlj2vla" path="res://Assets/Textures/Icons/greenmask_icon.png" id="9_aj6u8"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_waum3"]
+load_path = "res://.godot/imported/mask_white.png-8f2d8895091bcb4274561c5ec048f9a6.ctex"
+
+[node name="MaskSlot" type="Control" unique_id=292302275 groups=["MaskSlot"]]
+custom_minimum_size = Vector2(80.24, 86.71)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1071.76
+offset_bottom = -549.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vdfdj")
+mask = 0
+
+[node name="InfectionStatusGreenStroke" type="TextureRect" parent="." unique_id=776944208]
+custom_minimum_size = Vector2(78, 68)
+layout_mode = 0
+offset_right = 78.0
+offset_bottom = 68.0
+texture = ExtResource("2_0urb4")
+expand_mode = 1
+
+[node name="InfectionStatusRed" type="TextureRect" parent="." unique_id=1956254499]
+clip_children = 2
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 76.0
+offset_bottom = 66.0
+texture = ExtResource("3_boi7p")
+expand_mode = 1
+
+[node name="Progress" type="TextureRect" parent="InfectionStatusRed" unique_id=1001658949]
+layout_mode = 0
+offset_left = -1.0000019
+offset_top = -1.9999981
+offset_right = 1968.0
+offset_bottom = 1814.119
+scale = Vector2(0.03909435, 0.03909435)
+texture = ExtResource("4_u4eyp")
+expand_mode = 1
+
+[node name="InfectionStatusRedline" type="TextureRect" parent="InfectionStatusRed/Progress" unique_id=692091903]
+layout_mode = 0
+offset_top = -123.0
+offset_right = 1969.0
+offset_bottom = 123.0
+texture = ExtResource("5_aj6u8")
+
+[node name="Hot" type="TextureRect" parent="." unique_id=1067007204]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -28.0
+offset_right = 14.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("6_f8ivo")
+expand_mode = 1
+
+[node name="BluemaskIcon" type="TextureRect" parent="Hot" unique_id=509727889]
+visible = false
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_boi7p")
+expand_mode = 1
+
+[node name="RedmaskIcon" type="TextureRect" parent="Hot" unique_id=2001333996]
+visible = false
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_u4eyp")
+expand_mode = 1
+
+[node name="GreenmaskIcon" type="TextureRect" parent="Hot" unique_id=154856226]
+visible = false
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -14.0
+offset_right = 14.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_aj6u8")
+expand_mode = 1
+
+[node name="icon" type="TextureRect" parent="." unique_id=642754449]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.119995
+offset_top = -50.5
+offset_right = 34.88
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CompressedTexture2D_waum3")
+expand_mode = 1

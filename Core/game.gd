@@ -1,7 +1,11 @@
 extends Node
 
+@export_flags_3d_render var default_camera_layers 
+
 var player : Player
 
+func _ready() -> void:
+	reset_collectibles()
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("DebugQuit"):

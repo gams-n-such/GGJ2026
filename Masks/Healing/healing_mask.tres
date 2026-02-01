@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="MaskResource" format=3 uid="uid://qg3c4vcawkyl"]
+
+[ext_resource type="Script" uid="uid://w42l5fr1my4c" path="res://Masks/mask_resource.gd" id="1_aqo0y"]
+
+[resource]
+script = ExtResource("1_aqo0y")
+visible_layers = 17
+metadata/_custom_type_script = "uid://w42l5fr1my4c"

@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://0ap3o5uyhhv" path="res://Core/game.gd" id="1_t3eon"]
 [ext_resource type="PackedScene" uid="uid://cx8nkv1sc72a5" path="res://Scenes/main_menu.tscn" id="2_htkch"]
-[ext_resource type="PackedScene" uid="uid://bl2kvp0ere6h8" path="res://Map/GameplayLevel.tscn" id="3_52drc"]
+[ext_resource type="PackedScene" uid="uid://dweh6bwy8lxy4" path="res://TestScene.tscn" id="3_52drc"]
 
 [node name="Game" type="Node" unique_id=736238743]
 script = ExtResource("1_t3eon")
+default_camera_layers = 17
 menu_scene = ExtResource("2_htkch")
 gameplay_scene = ExtResource("3_52drc")
