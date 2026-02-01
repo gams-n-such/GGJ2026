@@ -18,7 +18,7 @@ func pause():
 	$Panel.visible = true
 	visible = true
 	$AnimationPlayer.play("blur")
-	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 @warning_ignore("unused_parameter")
 func _input(event: InputEvent) -> void:
