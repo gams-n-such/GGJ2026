@@ -18,6 +18,7 @@ var footstep_distance = 2.1
 var is_mouse_visible : bool = false 
 
 @onready var interactor : PlayerInteractorBase = %Interactor
+@onready var camera : Camera3D = %Camera3D
 
 func _ready() -> void:
 	Game.player = self
