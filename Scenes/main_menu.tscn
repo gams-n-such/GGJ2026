@@ -739,5 +739,4 @@ bus = &"BGM"
 playback_type = 1
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/HBoxContainer/Authors" to="." method="_on_authors_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Exit" to="." method="_on_exit_pressed"]

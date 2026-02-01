@@ -1,7 +1,7 @@
 extends Node3D
 
 @onready var infection: Infection = $Infection
-@onready var sprite: Sprite3D = $Sprite3D
+@onready var sprite: Sprite3D = %Sprite3D
 
 @export var none_infection : Texture2D
 @export var half_infection : Texture2D

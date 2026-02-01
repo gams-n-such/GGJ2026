@@ -1,11 +1,20 @@
 [gd_scene format=3 uid="uid://cnhfyrc3aymu5"]
 
+[ext_resource type="Script" uid="uid://d38j7cabvkcdk" path="res://LevelDesign/Ship/space_ship.gd" id="1_oqi3g"]
 [ext_resource type="PackedScene" uid="uid://ck1bawi6u3kp1" path="res://LevelDesign/Ship/Assets/Spaceship_FernandoTheFlamingo.fbx" id="1_u5vhr"]
+[ext_resource type="PackedScene" uid="uid://bcgvlf3aafxqf" path="res://Interaction/interaction_trigger.tscn" id="2_8ots4"]
 
 [node name="SpaceShip" type="Node3D" unique_id=1147634907]
+script = ExtResource("1_oqi3g")
 
 [node name="Node3D" type="Node3D" parent="." unique_id=653560935]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 
 [node name="Spaceship_FernandoTheFlamingo" parent="Node3D" unique_id=1439709567 instance=ExtResource("1_u5vhr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8615651, 0)
+
+[node name="InteractionTrigger" parent="Node3D" unique_id=1303982047 instance=ExtResource("2_8ots4")]
+transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 1.4999199, 0.887599)
+interaction_time = -1.0
+
+[connection signal="interaction_completed" from="Node3D/InteractionTrigger" to="." method="_on_interaction_trigger_interaction_completed"]

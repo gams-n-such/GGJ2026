@@ -1,14 +1,9 @@
-extends CanvasLayer
-
-
-
-func _on_exit_pressed() -> void:
-	get_tree().quit()
-
-
-func _on_authors_pressed() -> void:
-	pass # Replace with function body.
+extends Control
 
 
 func _on_start_pressed() -> void:
-	Game.load_gameplay_scene()
+	Game.start_game()
+
+
+func _on_exit_pressed() -> void:
+	Game.quit_to_desktop()

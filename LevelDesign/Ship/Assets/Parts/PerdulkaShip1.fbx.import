@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ck1bawi6u3kp1"
-path="res://.godot/imported/Spaceship_FernandoTheFlamingo.fbx-3c56771577f5539083d8380fd3246d5c.scn"
+uid="uid://cuje4kxgxnxoh"
+path="res://.godot/imported/PerdulkaShip1.fbx-49d3ee2c092eb03c0f165d49c1e9819b.scn"
 
 [deps]
 
-source_file="res://LevelDesign/Ship/Assets/Spaceship_FernandoTheFlamingo.fbx"
-dest_files=["res://.godot/imported/Spaceship_FernandoTheFlamingo.fbx-3c56771577f5539083d8380fd3246d5c.scn"]
+source_file="res://LevelDesign/Ship/Assets/Parts/PerdulkaShip1.fbx"
+dest_files=["res://.godot/imported/PerdulkaShip1.fbx-49d3ee2c092eb03c0f165d49c1e9819b.scn"]
 
 [params]
 
