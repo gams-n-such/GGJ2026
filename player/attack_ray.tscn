@@ -11,8 +11,5 @@ collide_with_areas = false
 collide_with_bodies = true
 script = ExtResource("2_mwpcs")
 damage = 10.0
-cooldown = 0.5
 target_group = &"Damageable"
-
-[node name="CooldownTimer" type="Timer" parent="." index="1" unique_id=881311707]
-unique_name_in_owner = true
+cooldown = 0.5

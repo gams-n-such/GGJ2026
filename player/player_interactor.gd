@@ -12,6 +12,10 @@ var potential_target : Node
 var active_target : Node
 
 @export var target_group := Utils.group_interactable
+@export var cooldown : float = -1.0
+
+@onready var cooldown_timer : Timer = %CooldownTimer
+
 
 func detect_target() -> Node:
 	var target = get_collider()
@@ -43,8 +47,13 @@ func get_time_to_interact(with : Node) -> float:
 		return interactable.interaction_time
 	return -1.0
 
+func is_on_cooldown() -> bool:
+	return not cooldown_timer.is_stopped()
+
 func begin_interaction() -> void:
 	if not potential_target:
+		return
+	if is_on_cooldown():
 		return
 	active_target = potential_target
 	on_interaction_started()
@@ -84,6 +93,8 @@ func on_interaction_ended(completed : bool) -> void:
 			interactable.interaction_completed.emit()
 		else:
 			interactable.interaction_aborted.emit()
+	if completed:
+		cooldown_timer.start(cooldown)
 
 func _cleanup_interaction() -> void:
 	active_target = null
