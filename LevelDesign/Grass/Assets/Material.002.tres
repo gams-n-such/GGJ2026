@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cg0jlu62rrkbh"]
+
+[ext_resource type="Texture2D" uid="uid://bhvocspeexu1t" path="res://LevelDesign/Grass/Assets/grass_0.png" id="1_bykjr"]
+
+[resource]
+resource_name = "Material.002"
+cull_mode = 1
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_bykjr")
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0
