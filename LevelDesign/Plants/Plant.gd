@@ -9,6 +9,8 @@ extends Node3D
 
 var phase
 
+@export var damage : float = 2.0
+
 func _on_infection_infection_state_changed() -> void:
 	match infection.progress:
 		Infection.Progress.NONE:
@@ -23,5 +25,19 @@ func _on_infection_infection_state_changed() -> void:
 
 
 func _on_area_3d_body_entered(body: Node3D) -> void:
-	if infection.is_infected():
-		Utils.deal_damage(body, 1)
+	if infection.is_infected() and body is Player:
+		dot(Game.player)
+		%DamageTimer.start()
+
+func dot(player : Player) -> void:
+	Utils.deal_damage(player, damage)
+
+
+func _on_damage_timer_timeout() -> void:
+	dot(Game.player)
+
+
+func _on_trigger_body_exited(body: Node3D) -> void:
+	if infection.is_infected() and body is Player:
+		dot(Game.player)
+		%DamageTimer.stop()
