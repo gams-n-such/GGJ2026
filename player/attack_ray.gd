@@ -5,4 +5,5 @@ extends PlayerInteractorBase
 
 func on_interaction_ended(completed : bool) -> void:
 	super.on_interaction_ended(completed)
-	Utils.deal_damage(active_target, damage)
+	if completed:
+		Utils.deal_damage(active_target, damage)
