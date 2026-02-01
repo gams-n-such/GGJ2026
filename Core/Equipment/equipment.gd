@@ -13,9 +13,11 @@ func can_be_used() -> bool:
 	return active and not transitioning
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed(equip_input_action):
-		equip_requested.emit(self)
-		
+	if not equip_input_action.is_empty() and event.is_action_pressed(equip_input_action):
+		try_equip()
+
+func try_equip() -> void:
+	equip_requested.emit(self)
 
 func equip() -> void:
 	transitioning = true
