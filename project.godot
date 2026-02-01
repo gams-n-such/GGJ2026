@@ -20,8 +20,10 @@ config/tags=PackedStringArray("jams")
 run/main_scene="uid://cx8nkv1sc72a5"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 boot_splash/bg_color=Color(1, 1, 1, 1)
+boot_splash/stretch_mode=0
 boot_splash/image="uid://mmqp74p0v4st"
 config/icon="uid://bto0cjdl61118"
+boot_splash/minimum_display_time=60
 
 [audio]
 

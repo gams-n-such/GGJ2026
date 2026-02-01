@@ -56,7 +56,6 @@ value = 50.0
 show_percentage = false
 
 [node name="StaminBar" type="ProgressBar" parent="." unique_id=745924015]
-visible = false
 custom_minimum_size = Vector2(197.715, 31)
 layout_mode = 1
 anchors_preset = 2
@@ -104,6 +103,7 @@ clip_text = true
 script = ExtResource("3_l2fi7")
 _min_size = 16
 _current_font_size = 28
+_size_just_modified_by_autosizer = true
 _editor_defaults_set = true
 metadata/_custom_type_script = "uid://bttgnk3bb2a8i"
 
@@ -141,11 +141,3 @@ alignment = 1
 [node name="MaskSlot3" parent="HBoxContainer" unique_id=1662867589 instance=ExtResource("3_oxd4t")]
 layout_mode = 2
 mask = 2
-
-[node name="MaskSlot" parent="HBoxContainer" unique_id=292302275 instance=ExtResource("3_oxd4t")]
-custom_minimum_size = Vector2(80.24, 99.955)
-layout_mode = 2
-
-[node name="MaskSlot2" parent="HBoxContainer" unique_id=854974943 instance=ExtResource("3_oxd4t")]
-layout_mode = 2
-mask = 1

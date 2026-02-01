@@ -12,28 +12,155 @@ shader_parameter/vignette_rgb = Color(0.9098039, 0, 0, 1)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uw77l"]
 shader = ExtResource("2_f6kaq")
 shader_parameter/overlay = true
-shader_parameter/resolution = Vector2(640, 480)
-shader_parameter/brightness = 1.8050000000000002
-shader_parameter/scanlines_opacity = 0.3310000157225
-shader_parameter/scanlines_width = 0.21200001007
-shader_parameter/grille_opacity = 0.3
+shader_parameter/scanlines_opacity = 0.1150000054625
+shader_parameter/scanlines_width = 0.1190000056525
+shader_parameter/grille_opacity = 0.454000021565
+shader_parameter/resolution = Vector2(1220, 542.27)
+shader_parameter/pixelate = true
 shader_parameter/roll = true
-shader_parameter/roll_speed = 8.9
-shader_parameter/roll_size = 4.2310002009725
+shader_parameter/roll_speed = 14.625
+shader_parameter/roll_size = 15.0000007125
 shader_parameter/roll_variation = 2.71500012570262
 shader_parameter/distort_intensity = 0.0530000025175
-shader_parameter/aberration = 0.03
-shader_parameter/noise_opacity = 0.4
-shader_parameter/noise_speed = 5.0
+shader_parameter/noise_opacity = 0.146000006935
+shader_parameter/noise_speed = 46.155
 shader_parameter/static_noise_intensity = 0.06
-shader_parameter/pixelate = true
-shader_parameter/discolor = true
-shader_parameter/warp_amount = 1.0
-shader_parameter/clip_warp = false
-shader_parameter/vignette_intensity = 0.4
-shader_parameter/vignette_opacity = 0.5
+shader_parameter/aberration = 0.03
+shader_parameter/brightness = 1.805
+shader_parameter/discolor = false
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = true
+shader_parameter/vignette_intensity = 0.0
+shader_parameter/vignette_opacity = 0.254000012065
 
-[node name="ColorRect" type="ColorRect" unique_id=749762147]
+[sub_resource type="Animation" id="Animation_leivb"]
+resource_name = "Damage"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/vignette_intensity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23721932, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.385, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/vignette_opacity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.254000012065, 0.254000012065]
+}
+
+[sub_resource type="Animation" id="Animation_f6kaq"]
+resource_name = "LowHealth"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/vignette_opacity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.254000012065, 0.254000012065]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/vignette_intensity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VHS:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VHS:material:shader_parameter/vignette_intensity")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.38, 0.0, 0.38, 0.0, 0.38]
+}
+
+[sub_resource type="Animation" id="Animation_baemr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/vignette_intensity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:material:shader_parameter/vignette_opacity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.254000012065]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VHS:material:shader_parameter/vignette_intensity")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_amvpn"]
+_data = {
+&"Damage": SubResource("Animation_leivb"),
+&"LowHealth": SubResource("Animation_f6kaq"),
+&"RESET": SubResource("Animation_baemr")
+}
+
+[node name="DamageEffect" type="ColorRect" unique_id=749762147]
 material = SubResource("ShaderMaterial_7pqkx")
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,7 +169,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0, 0, 1)
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=268528320]
+[node name="VHS" type="ColorRect" parent="." unique_id=268528320]
 material = SubResource("ShaderMaterial_uw77l")
 layout_mode = 1
 anchors_preset = 15
@@ -50,3 +177,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1315128045]
+libraries/ = SubResource("AnimationLibrary_amvpn")

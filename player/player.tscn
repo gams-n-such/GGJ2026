@@ -43,71 +43,6 @@ shader_parameter/color_over = Color(0, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_e7oew"]
 font_size = 67
 
-[sub_resource type="Animation" id="Animation_knn7v"]
-resource_name = "Damage"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/vignette_intensity")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.425, 0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:material:shader_parameter/vignette_opacity")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.254000012065, 0.254000012065]
-}
-
-[sub_resource type="Animation" id="Animation_rptt4"]
-resource_name = "LowerHealth"
-
-[sub_resource type="Animation" id="Animation_7pqkx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/vignette_intensity")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:material:shader_parameter/vignette_opacity")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.254000012065]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_uw77l"]
-_data = {
-&"Damage": SubResource("Animation_knn7v"),
-&"LowerHealth": SubResource("Animation_rptt4"),
-&"RESET": SubResource("Animation_7pqkx")
-}
-
 [node name="Player" type="CharacterBody3D" unique_id=1158226171 groups=["Damageable", "Player"]]
 collision_layer = 16
 collision_mask = 7
@@ -256,9 +191,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 58
 
 [node name="PauseMenu" parent="UI" unique_id=1869559949 instance=ExtResource("15_wodsf")]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI" unique_id=867306733]
-libraries/ = SubResource("AnimationLibrary_uw77l")
 
 [node name="EquipmentManager" type="Node" parent="." unique_id=467696698]
 script = ExtResource("17_tqiix")
