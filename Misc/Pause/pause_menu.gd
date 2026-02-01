@@ -18,7 +18,7 @@ func pause():
 	$Panel.visible = true
 	visible = true
 	$AnimationPlayer.play("blur")
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED)
 
 @warning_ignore("unused_parameter")
 func _input(event: InputEvent) -> void:
@@ -36,7 +36,8 @@ func _on_resume_pressed() -> void:
 	resume()
 
 func _on_exit_pressed() -> void:
-	Game.quit_to_title()
+	get_tree().paused = false
+	Game.load_menu_scene()
 
 
 func _on_options_pressed() -> void:
