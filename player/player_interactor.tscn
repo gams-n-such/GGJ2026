@@ -12,8 +12,10 @@ script = ExtResource("1_nl6ft")
 
 [node name="InteractionTimer" type="Timer" parent="." unique_id=1803999023]
 unique_name_in_owner = true
+one_shot = true
 
 [node name="CooldownTimer" type="Timer" parent="." unique_id=578774992]
 unique_name_in_owner = true
+one_shot = true
 
 [connection signal="timeout" from="InteractionTimer" to="." method="_on_interaction_timer_timeout"]

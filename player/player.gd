@@ -117,6 +117,10 @@ func play_random_footstep_sound() -> void:
 
 func _on_health_value_changed(attribute: Attribute, new_value: float) -> void:
 	print("HP: " + str(new_value))
+	if new_value <= $Health.max_value / 3:
+		$UI/DamageEffect/AnimationPlayer.play("LowHealth")
+	elif new_value < $Health.max_value:
+		$UI/DamageEffect/AnimationPlayer.play("Damage")
 	
 	if new_value <= 0:
 		$GUI/HUD.visible = false
@@ -167,3 +171,29 @@ func _on_weapon_equipped(new_equipment: Equipment) -> void:
 	pass # Replace with function body.
 
 #endregion
+
+
+func _on_combat_mask_equip_requested(equipment: Equipment) -> void:
+	$UI/GUI/Mask/RedMask.visible=true
+	$UI/GUI/Mask/WhiteMask.visible = false
+	$UI/GUI/Mask/BlueMask.visible = false
+
+
+func _on_tracking_mask_equip_requested(equipment: Equipment) -> void:
+	$UI/GUI/Mask/RedMask.visible=false
+	$UI/GUI/Mask/WhiteMask.visible = false
+	$UI/GUI/Mask/BlueMask.visible = true
+
+
+func _on_diagnostic_mask_equip_requested(equipment: Equipment) -> void:
+	$UI/GUI/Mask/RedMask.visible= false
+	$UI/GUI/Mask/WhiteMask.visible = true
+	$UI/GUI/Mask/BlueMask.visible = false
+
+
+func _on_melee_attack_interaction_started(target: Node, time_left: float) -> void:
+	$UI/HUD/Hand/AnimationPlayer.play("Hit")
+
+
+func _on_shooting_attack_interaction_started(target: Node, time_left: float) -> void:
+	$UI/HUD/Hand/AnimationPlayer.play("Shot")

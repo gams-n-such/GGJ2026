@@ -119,11 +119,12 @@ func _update_attack_readiness(delta: float, sees_player: bool) -> void:
 	if attack_timer > 0.0:
 		attack_timer -= delta
 
+@export var damage : float = 5.0
 func _perform_attack() -> void:
 	# Проверяем, прошел ли кулдаун
 	if attack_timer <= 0.0:
 		print("Enemy attacking!")
-		Utils.deal_damage(player, 1)
+		Utils.deal_damage(player, damage)
 		
 		# Устанавливаем кулдаун
 		attack_timer = attack_cooldown
@@ -210,3 +211,8 @@ func _can_see_player() -> bool:
 		return collider.is_in_group("Player")
 	
 	return false
+
+
+func _on_health_value_changed(attribute: Attribute, new_value: float) -> void:
+	if new_value <= 0:
+		queue_free()

@@ -92,13 +92,19 @@ autoplay = &"Plant"
 
 [node name="Infection" parent="." unique_id=479001063 instance=ExtResource("4_dcim6")]
 
-[node name="Area3D" type="Area3D" parent="." unique_id=1460841489]
+[node name="Trigger" type="Area3D" parent="." unique_id=1460841489]
+unique_name_in_owner = true
 collision_layer = 2
 collision_mask = 16
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=40700877]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Trigger" unique_id=40700877]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1397094, 7.133362, -0.5265501)
 shape = SubResource("BoxShape3D_wqpwy")
 
+[node name="DamageTimer" type="Timer" parent="." unique_id=498980957]
+unique_name_in_owner = true
+
 [connection signal="infection_state_changed" from="Infection" to="." method="_on_infection_infection_state_changed"]
-[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Trigger" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Trigger" to="." method="_on_trigger_body_exited"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
