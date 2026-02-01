@@ -119,11 +119,12 @@ func _update_attack_readiness(delta: float, sees_player: bool) -> void:
 	if attack_timer > 0.0:
 		attack_timer -= delta
 
+@export var damage : float = 5.0
 func _perform_attack() -> void:
 	# Проверяем, прошел ли кулдаун
 	if attack_timer <= 0.0:
 		print("Enemy attacking!")
-		Utils.deal_damage(player, 1)
+		Utils.deal_damage(player, damage)
 		
 		# Устанавливаем кулдаун
 		attack_timer = attack_cooldown
