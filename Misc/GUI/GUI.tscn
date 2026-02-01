@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://duusv3d7l63yw"]
+
+[ext_resource type="Texture2D" uid="uid://pgcwnxm8wap8" path="res://Assets/Textures/Icons/health_bar_black.png" id="1_cyipj"]
+[ext_resource type="Texture2D" uid="uid://3pl6djid7vcm" path="res://Assets/Textures/Icons/health_bar_red.png" id="2_l2fi7"]
+[ext_resource type="Script" uid="uid://bttgnk3bb2a8i" path="res://addons/font_auto_size_labels/auto_size_label.gd" id="3_l2fi7"]
+[ext_resource type="PackedScene" uid="uid://8145hjn5o2lx" path="res://Misc/MaskSlot/mask_slot.tscn" id="3_oxd4t"]
+[ext_resource type="Texture2D" uid="uid://b2w0w5bv7b3hb" path="res://Assets/Textures/Icons/stamina_bar_yellow.png" id="3_rdmim"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oxd4t"]
+texture = ExtResource("1_cyipj")
+expand_margin_left = 50.0
+expand_margin_top = 50.0
+expand_margin_bottom = 33.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rvuok"]
+texture = ExtResource("2_l2fi7")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_urrxo"]
+texture = ExtResource("1_cyipj")
+expand_margin_left = 50.0
+expand_margin_top = 50.0
+expand_margin_bottom = 33.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ramdi"]
+atlas = ExtResource("3_rdmim")
+region = Rect2(56, 2181, 1849, 187)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xpsij"]
+texture = SubResource("AtlasTexture_ramdi")
+
+[node name="Control" type="Control" unique_id=76367185]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HpBar" type="ProgressBar" parent="." unique_id=540895943]
+custom_minimum_size = Vector2(2669.185, 187)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 25.000002
+offset_top = -107.99994
+offset_right = 2694.185
+offset_bottom = 79.00006
+grow_vertical = 0
+scale = Vector2(0.15772605, 0.15772605)
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxTexture_oxd4t")
+theme_override_styles/fill = SubResource("StyleBoxTexture_rvuok")
+value = 50.0
+show_percentage = false
+
+[node name="StaminBar" type="ProgressBar" parent="." unique_id=745924015]
+visible = false
+custom_minimum_size = Vector2(197.715, 31)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = -20.0
+offset_right = 2689.886
+offset_bottom = 167.0
+grow_vertical = 0
+scale = Vector2(0.158, -0.158)
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/background = SubResource("StyleBoxTexture_urrxo")
+theme_override_styles/fill = SubResource("StyleBoxTexture_xpsij")
+value = 50.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=516033180]
+custom_minimum_size = Vector2(164.405, 30.67)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -274.0
+offset_top = -165.0
+offset_right = -46.0
+offset_bottom = -21.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1740236178]
+custom_minimum_size = Vector2(228.04, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Collected capsules : 0"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+script = ExtResource("3_l2fi7")
+_min_size = 16
+_current_font_size = 28
+_size_just_modified_by_autosizer = true
+_editor_defaults_set = true
+metadata/_custom_type_script = "uid://bttgnk3bb2a8i"
+
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=2116973368]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Collected parts : 0/x"
+horizontal_alignment = 2
+vertical_alignment = 1
+autowrap_mode = 3
+clip_text = true
+script = ExtResource("3_l2fi7")
+_min_size = 16
+_current_font_size = 28
+_size_just_modified_by_autosizer = true
+_editor_defaults_set = true
+metadata/_custom_type_script = "uid://bttgnk3bb2a8i"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1952212010]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -99.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="MaskSlot" parent="HBoxContainer" unique_id=292302275 instance=ExtResource("3_oxd4t")]
+custom_minimum_size = Vector2(80.24, 99.955)
+layout_mode = 2
+
+[node name="MaskSlot2" parent="HBoxContainer" unique_id=854974943 instance=ExtResource("3_oxd4t")]
+layout_mode = 2
+mask = 1
+
+[node name="MaskSlot3" parent="HBoxContainer" unique_id=1662867589 instance=ExtResource("3_oxd4t")]
+layout_mode = 2
+mask = 2
