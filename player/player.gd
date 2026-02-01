@@ -190,10 +190,16 @@ func _on_diagnostic_mask_equip_requested(equipment: Equipment) -> void:
 	$UI/GUI/Mask/WhiteMask.visible = true
 	$UI/GUI/Mask/BlueMask.visible = false
 
+const ATTACK_SWORD_REDSWORD = preload("uid://gs36egf83et5")
+const ATTACK_GUN_REDLIGHT = preload("uid://clpvqijsa2d8b")
 
 func _on_melee_attack_interaction_started(target: Node, time_left: float) -> void:
+	$UI/HUD/Hand/Control/AttackHand.visible = true
+	$UI/HUD/Hand/Control/AttackHand/AttackSwordRedsword.texture = ATTACK_SWORD_REDSWORD
 	$UI/HUD/Hand/AnimationPlayer.play("Hit")
 
 
 func _on_shooting_attack_interaction_started(target: Node, time_left: float) -> void:
+	$UI/HUD/Hand/Control/AttackHand.visible = true
+	$UI/HUD/Hand/Control/AttackHand/AttackSwordRedsword.texture = ATTACK_GUN_REDLIGHT
 	$UI/HUD/Hand/AnimationPlayer.play("Shot")

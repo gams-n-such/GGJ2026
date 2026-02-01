@@ -48,7 +48,7 @@ tracks/0/path = NodePath("Control:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 2, 2, 2),
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1.131432, -0.046666667, 0.073554255, 0.04, -0.0630465, -0.8196045, -0.086666666, 0, 0.080000006, 0, 0, -0.16666667, 0, 0, 0),
 "times": PackedFloat32Array(0, 0.28, 0.52, 1)
 }
@@ -203,10 +203,12 @@ target_position = Vector3(0, 0, -3)
 
 [node name="MeleeAttack" parent="HeadPosition/LandingAnimation/Camera3D" unique_id=1643040456 instance=ExtResource("13_s7qer")]
 unique_name_in_owner = true
+target_position = Vector3(0, 0, -4.7)
 damage = 20.0
 
 [node name="ShootingAttack" parent="HeadPosition/LandingAnimation/Camera3D" unique_id=916945525 instance=ExtResource("13_s7qer")]
 unique_name_in_owner = true
+target_position = Vector3(0, 0, -7.5)
 damage = 50.0
 cooldown = 1.0
 
@@ -330,6 +332,7 @@ texture = ExtResource("20_1s1yo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI/HUD/Hand" unique_id=1886802805]
 libraries/ = SubResource("AnimationLibrary_1s1yo")
+speed_scale = 3.0
 
 [node name="GUI" parent="UI" unique_id=76367185 instance=ExtResource("17_s7qer")]
 
