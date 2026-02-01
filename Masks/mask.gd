@@ -31,8 +31,8 @@ func equip() -> void:
 
 func unequip() -> void:
 	transitioning = true
-	var weapon_manager := default_weapon.get_parent() as EquipmentManager
 	if default_weapon:
+		var weapon_manager := default_weapon.get_parent() as EquipmentManager
 		await weapon_manager.unequip_current()
 	var hud := MASK_HUD.instantiate() as MaskHud
 	Game.player.add_child(hud)
