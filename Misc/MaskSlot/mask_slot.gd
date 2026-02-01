@@ -20,4 +20,5 @@ func Activate(change_to_mask : mask_type):
 	print("activating mask with index: " + str(change_to_mask))
 	for child in $Hot.get_children():
 		child.visible = false
-	$Hot.get_child(change_to_mask).visible = true
+	if change_to_mask == mask:
+		$Hot.get_child(change_to_mask).visible = true

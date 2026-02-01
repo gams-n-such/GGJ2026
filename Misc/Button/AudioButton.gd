@@ -23,8 +23,8 @@ func toggle_bus():
 	var is_muted = AudioServer.is_bus_mute(bus_index)
 	AudioServer.set_bus_mute(bus_index, not is_muted)
 	
-	if is_muted: icon = muted_icon
-	else: icon = unmuted_icon
+	if is_muted: icon = unmuted_icon
+	else: icon = muted_icon
 
 func _pressed() -> void:
 	
