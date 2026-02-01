@@ -13,8 +13,10 @@
 [ext_resource type="AudioStream" uid="uid://dly32slohyd7p" path="res://player/sounds/footsteps/footstep_10.wav" id="11_65viv"]
 [ext_resource type="PackedScene" uid="uid://u6c80onqkda5" path="res://player/player_interactor.tscn" id="12_32hag"]
 [ext_resource type="Script" uid="uid://cmpefrfbpmpfh" path="res://Core/Atributes/attribute.gd" id="12_kb6p2"]
+[ext_resource type="PackedScene" uid="uid://302hr8kg3v2m" path="res://player/attack_ray.tscn" id="13_s7qer"]
 [ext_resource type="Shader" uid="uid://w77bset6y6lr" path="res://Shaders/Blur.gdshader" id="13_wodsf"]
 [ext_resource type="PackedScene" uid="uid://bipkxexwec852" path="res://Misc/Button/button.tscn" id="14_32hag"]
+[ext_resource type="PackedScene" uid="uid://ctg7b5wmmvv2x" path="res://player/healing_ray.tscn" id="14_g4c7l"]
 [ext_resource type="PackedScene" uid="uid://b0mf3l56dvooj" path="res://Misc/Pause/pause_menu.tscn" id="15_wodsf"]
 [ext_resource type="PackedScene" uid="uid://duusv3d7l63yw" path="res://Misc/GUI/GUI.tscn" id="17_s7qer"]
 [ext_resource type="Script" uid="uid://8iq1i41swaai" path="res://Core/Equipment/equipment_manager.gd" id="17_tqiix"]
@@ -64,10 +66,22 @@ unique_name_in_owner = true
 
 [node name="Camera3D" type="Camera3D" parent="HeadPosition/LandingAnimation" unique_id=1738730421]
 unique_name_in_owner = true
+cull_mask = 1
 
 [node name="Interactor" parent="HeadPosition/LandingAnimation/Camera3D" unique_id=553457367 instance=ExtResource("12_32hag")]
 unique_name_in_owner = true
 target_position = Vector3(0, 0, -3)
+
+[node name="MeleeAttack" parent="HeadPosition/LandingAnimation/Camera3D" unique_id=1643040456 instance=ExtResource("13_s7qer")]
+unique_name_in_owner = true
+
+[node name="ShootingAttack" parent="HeadPosition/LandingAnimation/Camera3D" unique_id=916945525 instance=ExtResource("13_s7qer")]
+unique_name_in_owner = true
+cooldown = 1.0
+
+[node name="HealingRay" parent="HeadPosition/LandingAnimation/Camera3D" unique_id=1577422798 instance=ExtResource("14_g4c7l")]
+unique_name_in_owner = true
+cooldown = 1.0
 
 [node name="CeilingDetector" type="RayCast3D" parent="." unique_id=1255637517]
 target_position = Vector3(0, 2.1, 0)
