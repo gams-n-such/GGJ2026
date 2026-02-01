@@ -8,7 +8,7 @@
 script = ExtResource("1_4s0i7")
 
 [node name="InteractionTrigger" parent="." unique_id=1303982047 instance=ExtResource("1_6h4e8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.040700912, 0)
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0.040700912, 0)
 monitoring = true
 
 [node name="Crater" parent="." unique_id=159071602 instance=ExtResource("3_3o66l")]
